@@ -1,0 +1,39 @@
+<div class="form-horizontal">
+  <%= form_for(@wine) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :rating, "Rating" %>
+  </div>
+    <%= f.number_field :rating %>
+
+  <div class="form-group">
+    <%= f.label :grape_varietal, "Grape Varietal" %>
+  </div>
+    <%= f.text_field :grape_varietal %>
+
+  <div class="form-group">
+    <%= f.label :country, "Country" %>
+  </div>
+    <%= f.text_field :country %>
+
+  <div class="form-group">
+    <%= f.label :state, "State" %>
+  </div>
+    <%= f.text_field :rating %>
+
+  <div class="form-group">
+    <%= f.label :vineyard, "Vineyard" %>
+  </div>
+    <%= f.text_field :vineyard %>
+
+  <div class="form-group">
+    <%= f.label :year, "Year" %>
+  </div>
+    <%= f.number_field :year %>
+
+  <div class="form-group">
+    <%= f.submit button_name:"Add Wine" %>
+  </div>
+
+  <% end %>
+</div>

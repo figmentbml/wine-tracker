@@ -1,0 +1,28 @@
+<h1>Input your wine here</h1>
+
+<table class "table">
+  <thead>
+    <tr>
+      <td>Rating</td>
+      <td>Grape Varietal</td>
+      <td>Country</td>
+      <td>State</td>
+      <td>Vineyard</td>
+      <td>Year</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @wines.each do |wine| %>
+    <tr>
+      <td><%= wine.rating %></td>
+      <td><%= wine.grape_varietal %></td>
+      <td><%= wine.country %></td>
+      <td><%= wine.state %></td>
+      <td><%= wine.vineyard %></td>
+      <td><%= wine.year %></td>
+      <td><%= link_to "Edit", edit_wine_path(wine) %></td>
+      <td><%= link_to "Delete", wine_path(wine), method: :delete %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
