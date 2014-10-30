@@ -11,7 +11,7 @@ class WinesController < ApplicationController
   def create
     @wine = Wine.new(wine_params)
     @wine.save
-    redirect_to wines_path
+    redirect_to wines_path, notice: 'Wine was successfully added.'
   end
 
   def edit
@@ -22,13 +22,13 @@ class WinesController < ApplicationController
     @wine = Wine.find(params[:id])
     @wine.update(wine_params)
     @wine.save
-    redirect_to wines_path
+    redirect_to wines_path, notice: 'Wine was successfully updated.'
   end
 
   def destroy
     @wine = Wine.find(params[:id])
     @wine.destroy
-    redirect_to wines_path
+    redirect_to wines_path, notice: 'Wine was successfully deleted.'
   end
 
 private

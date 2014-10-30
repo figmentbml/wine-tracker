@@ -2,34 +2,34 @@
   <%= form_for(@wine) do |f| %>
 
   <div class="form-group">
-    <%= f.label :rating, "Rating" %>
+    <%= f.label :rating, "Rating", class: "control-label" %>
   </div>
-    <%= f.number_field :rating %>
+    <%= f.number_field :rating, class: "form-control" %>
 
   <div class="form-group">
-    <%= f.label :grape_varietal, "Grape Varietal" %>
+    <%= f.label :grape_varietal, "Grape Varietal", class: "control-label" %>
   </div>
-    <%= f.text_field :grape_varietal %>
+    <%= f.text_field :grape_varietal, class: "form-control"  %>
 
   <div class="form-group">
-    <%= f.label :country, "Country" %>
+    <%= f.label :country, "Country", class: "control-label" %>
   </div>
-    <%= f.text_field :country %>
+    <%= f.text_field :country, class: "form-control"  %>
 
   <div class="form-group">
-    <%= f.label :state, "State" %>
+    <%= f.label :state, "State", class: "control-label" %>
   </div>
-    <%= f.text_field :rating %>
+    <%= f.text_field :rating, class: "form-control"  %>
 
   <div class="form-group">
-    <%= f.label :vineyard, "Vineyard" %>
+    <%= f.label :vineyard, "Vineyard", class: "control-label" %>
   </div>
-    <%= f.text_field :vineyard %>
+    <%= f.text_field :vineyard, class: "form-control"  %>
 
   <div class="form-group">
-    <%= f.label :year, "Year" %>
+    <%= f.label :year, "Year", class: "control-label" %>
   </div>
-    <%= f.number_field :year %>
+    <%= f.number_field :year, class: "form-control"  %>
 
   <div class="form-group">
     <%= f.submit button_name:"Add Wine" %>
