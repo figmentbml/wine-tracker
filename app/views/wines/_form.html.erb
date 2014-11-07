@@ -1,4 +1,4 @@
-<div class="form-horizontal">
+<div class="form-horizontal" role="form">
   <%= form_for(@wine) do |f| %>
 
   <div class="form-group">
@@ -32,8 +32,8 @@
     <%= f.number_field :year, class: "form-control"  %>
 
   <div class="form-group">
-    <%= f.submit button_name:"Add Wine" %>
+    <%= f.submit name: button_name, class: "btn btn-default"%>
   </div>
-
+<br/>
   <% end %>
 </div>

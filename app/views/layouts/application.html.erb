@@ -17,7 +17,9 @@
             <div class="inner">
               <h3 class="masthead-brand"><%= link_to "Wine Tracker", root_path %></h3>
               <ul class="nav masthead-nav">
-                <li><%= link_to("Input Wine", wines_path) %></li>
+                <li><%= link_to "Input Wine", new_wine_path %></li>
+                <li><%= link_to "Show Wines", wines_path %></li>
+                <li><%= link_to "Learn More", wines_path %></li>
               </ul>
             </div>
           </div>
@@ -37,10 +39,8 @@
 
     </div>
 <footer>
-  <div class="container">
     <p>Created by Beth Jaswa | <%= link_to("Linkedin", "http://www.linkedin.com/in/bethjaswa/") %>
     </p>
-  </div>
 </footer>
 </body>
 

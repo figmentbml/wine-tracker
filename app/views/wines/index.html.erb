@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Input your wine here</h1>
+  <h1>Colorado Wines</h1>
 </div>
 
 <br/>
@@ -8,8 +8,6 @@
     <tr>
       <td>Rating</td>
       <td>Grape Varietal</td>
-      <td>Country</td>
-      <td>State</td>
       <td>Vineyard</td>
       <td>Year</td>
     </tr>
@@ -19,12 +17,10 @@
     <tr>
       <td><%= wine.rating %></td>
       <td><%= wine.grape_varietal %></td>
-      <td><%= wine.country %></td>
-      <td><%= wine.state %></td>
       <td><%= wine.vineyard %></td>
       <td><%= wine.year %></td>
       <td><%= link_to "Edit", edit_wine_path(wine) %></td>
-      <td><%= link_to "Delete", wine_path(wine), method: :delete %></td>
+      <td><%= link_to "Delete", wine_path(wine), method: :delete, data: {confirm: "Are you sure?"} %></td>
     </tr>
     <% end %>
   </tbody>
