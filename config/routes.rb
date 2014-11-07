@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root "pages#index"
   resources :wines
 
+  get '/taste_wine' => "pages#taste_wine", as: :taste_wine
+
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
