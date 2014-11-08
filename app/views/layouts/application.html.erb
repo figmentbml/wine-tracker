@@ -1,47 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <title>Wine Tracker</title>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
-
-    <div class="site-wrapper">
-
-      <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand"><%= link_to "Wine Tracker", root_path %></h3>
-              <ul class="nav masthead-nav">
-                <li><%= link_to "Input Wine", new_wine_path %></li>
-                <li><%= link_to "Show Wines", wines_path %></li>
-                <li><%= link_to "How to Taste", taste_wine_path %></li>
-              </ul>
-            </div>
-          </div>
-<%= notice %>
-          <div class="inner cover">
-            <%= yield %>
-
-          </div>
-          <div class="mastfoot">
-            <div class="inner">
-            </div>
-          </div>
-
-        </div>
-
+    <header class="navbar">
+      <div class="container">
+        <nav class="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Wine Tracker", root_path %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Sign Up", signup_path %></li>
+            <li><%= link_to "Input Wine", new_wine_path %></li>
+            <li><%= link_to "Show Wines", wines_path %></li>
+            <li><%= link_to "How to Taste", taste_wine_path %></li>
+          </ul>
+        </nav>
       </div>
-
+    </header>
+<%= notice %>
+    <div class="container">
+      <%= yield %>
     </div>
-<footer>
-    <p>Created by Beth Jaswa | <%= link_to("Linkedin", "http://www.linkedin.com/in/bethjaswa/") %>
-    </p>
-</footer>
-</body>
+    <footer>
+      <p>Copyright &copy; <%= Time.zone.today.year %> Beth Jaswa | <%= link_to("Linkedin", "http://www.linkedin.com/in/bethjaswa/") %>
+      </p>
+    </footer>
+  </body>
 
 </html>

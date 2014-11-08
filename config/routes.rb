@@ -2,10 +2,15 @@ Rails.application.routes.draw do
 
   root "pages#index"
   resources :wines
+  resources :users
 
   get '/taste_wine' => "pages#taste_wine", as: :taste_wine
 
-  
+  get '/signup' => 'registers#new', as: :signup
+  post '/signup' => 'registers#create'
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
