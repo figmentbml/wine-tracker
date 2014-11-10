@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   get '/taste_wine' => "pages#taste_wine", as: :taste_wine
 
-  get '/signup' => 'registers#new', as: :signup
-  post '/signup' => 'registers#create'
+  get '/signup' => 'users#new', as: :signup
+  post '/signup' => 'users#create'
   get '/signin' => 'authentication#new', as: :signin
   post '/signin' => 'authentication#create'
   get '/signout' => 'authentication#destroy', as: :signout
