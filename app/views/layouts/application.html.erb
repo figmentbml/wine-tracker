@@ -7,12 +7,18 @@
   <body>
     <header class="navbar">
       <div class="container">
-        <nav class="navbar-collapse">
+        <nav class="navbar navbar-collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to "Wine Tracker", root_path %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Sign Up", signup_path %></li>
+            <% if current_user %>
+              <li><%= current_user.name %></li>
+              <li><%= link_to "Sign Out", signout_path %></li>
+            <% else %>
+              <li><%= link_to "Sign Up", signup_path %></li>
+              <li><%= link_to "Sign In", signin_path %></li>
+            <% end %>
             <li><%= link_to "Input Wine", new_wine_path %></li>
             <li><%= link_to "Show Wines", wines_path %></li>
             <li><%= link_to "How to Taste", taste_wine_path %></li>
@@ -23,11 +29,17 @@
 <%= notice %>
     <div class="container">
       <%= yield %>
+    <hr>
+    <div class="footer">
+      Copyright &copy; <%= Time.zone.today.year %> Beth Jaswa |
+      <%= link_to "http://www.linkedin.com/in/bethjaswa/" do %>
+        <%= image_tag("linked_in.png") %>
+      <% end %> |
+      <%= link_to "http://www.twitter.com/@figmentbml" do %>
+        <%= image_tag("Twitter_logo.png") %>
+      <% end %> |
     </div>
-    <footer>
-      <p>Copyright &copy; <%= Time.zone.today.year %> Beth Jaswa | <%= link_to("Linkedin", "http://www.linkedin.com/in/bethjaswa/") %>
-      </p>
-    </footer>
+  </div>
   </body>
 
 </html>
