@@ -1,6 +1,8 @@
 <div class="form-horizontal" role="form">
   <%= form_for(@wine) do |f| %>
 
+<%= render "shared/errors", instance: @wine %>
+
   <div class="form-group">
     <%= f.label :rating, "Rating", class: "control-label" %>
   </div>

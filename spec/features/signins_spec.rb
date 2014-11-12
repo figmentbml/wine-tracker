@@ -47,5 +47,27 @@ feature "Sign In" do
     expect(page).to have_no_content("James")
   end
 
+  scenario "User signs out" do
+    User.create!(
+    name: "James",
+    email: "jim@email.com",
+    password: "123",
+    password_confirmation: "123"
+    )
 
+    visit root_path
+    click_on "Sign In"
+    fill_in "Email", with: "jim@email.com"
+    fill_in "Password", with: "123"
+    click_button "Sign In"
+    expect(page).to have_no_content("Sign In")
+    expect(page).to have_content("Sign Out")
+    expect(page).to have_content("James")
+
+    visit root_path
+    click_on "Sign Out"
+    expect(page).to have_no_content("Sign Out")
+    expect(page).to have_content("Sign In")
+    expect(page).to have_no_content("James")
+  end
 end

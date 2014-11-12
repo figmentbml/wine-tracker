@@ -19,7 +19,9 @@
               <li><%= link_to "Sign Up", signup_path %></li>
               <li><%= link_to "Sign In", signin_path %></li>
             <% end %>
+            <% if current_user %>
             <li><%= link_to "Input Wine", new_wine_path %></li>
+            <% end %>
             <li><%= link_to "Show Wines", wines_path %></li>
             <li><%= link_to "How to Taste", taste_wine_path %></li>
           </ul>

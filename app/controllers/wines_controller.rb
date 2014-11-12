@@ -25,6 +25,10 @@ class WinesController < ApplicationController
     redirect_to wines_path, notice: 'Wine was successfully updated.'
   end
 
+  def show
+    @wine = Wine.find(params[:id])
+  end
+
   def destroy
     @wine = Wine.find(params[:id])
     @wine.destroy
