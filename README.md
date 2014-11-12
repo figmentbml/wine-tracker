@@ -1,3 +1,5 @@
+![](https://travis-ci.org/figmentbml/wine-tracker.svg)
+
 Things I'm hoping Wine Tracker will do:
 - user will input wine they have had (manually and ideally using your smart phone's item scanner)
     - in order to remember wines they liked
