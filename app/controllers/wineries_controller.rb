@@ -11,8 +11,11 @@ class WineriesController < ApplicationController
 
   def create
     @winery = Winery.new(winery_params)
-    @winery.save
-    redirect_to wineries_path
+    if @winery.save
+      redirect_to wineries_path, notice: "Winery was successfully created"
+    else
+      render :new
+    end
   end
 
   def show
@@ -23,12 +26,16 @@ class WineriesController < ApplicationController
 
   def update
     @winery.update(winery_params)
-    redirect_to wineries_path
+    if @winery.save
+      redirect_to wineries_path, notice: "Winery was successfully updated"
+    else
+      render :edit
+    end
   end
 
   def destroy
     @winery.destroy
-    redirect_to wineries_path
+    redirect_to wineries_path, notice: "Winery was successfully deleted"
   end
 
 private
@@ -39,6 +46,7 @@ private
     :street,
     :city,
     :zip,
+    :state,
     :county,
     :hours,
     :phone_number,
