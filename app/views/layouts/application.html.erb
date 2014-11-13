@@ -21,8 +21,10 @@
             <% end %>
             <% if current_user %>
             <li><%= link_to "Input Wine", new_wine_path %></li>
+            <li><%= link_to "Input Winery", new_winery_path %></li>
             <% end %>
             <li><%= link_to "Show Wines", wines_path %></li>
+            <li><%= link_to "Show Wineries", wineries_path %></li>
             <li><%= link_to "How to Taste", taste_wine_path %></li>
           </ul>
         </nav>

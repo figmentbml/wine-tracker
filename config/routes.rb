@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "pages#index"
   resources :wines
   resources :users
+  resources :wineries
 
   get '/taste_wine' => "pages#taste_wine", as: :taste_wine
 

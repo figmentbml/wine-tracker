@@ -1,0 +1,27 @@
+<div class="page-header">
+  <div class="pull-right">
+    <%= link_to "Edit", edit_winery_path, class: "btn btn-default" %>
+  </div>
+  <h1><%= @winery.name %></h1>
+</div>
+
+<div class="row">
+  <div class="pull-left">
+    <%= image_tag "thor.jpg", class: "img-responsive img-thumbnail" %>
+  </div>
+  <p class="text-left">
+    <strong>Rating:</strong> <%= @winery.rating %>
+  </p>
+  <p class="text-left">
+    <strong>Address:</strong> <%= @winery.street %>
+  </p>
+  <p class="text-left">
+    <strong>Hours:</strong> <%= @winery.hours %>
+  </p>
+  <p class="text-left">
+    <strong>Phone Number:</strong> <%= @winery.phone_number %>
+  </p>
+  <p class="text-left">
+    <strong>Email:</strong> <%= mail_to(@winery.email) %>
+  </p>
+</div>

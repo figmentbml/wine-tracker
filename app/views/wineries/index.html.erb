@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h1>Colorado Wineries</h1>
+</div>
+
+<table class= "table">
+  <thead>
+    <tr>
+      <td>
+        Rating
+      </td>
+      <td>
+        Name
+      </td>
+      <td>
+        Description
+      </td>
+      <td>
+        City
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @wineries.each do |winery| %>
+    <tr>
+      <td>
+        <%= winery.rating %>
+      </td>
+      <td>
+        <%= link_to winery.name, winery_path(winery) %>
+      </td>
+      <td>
+        <%= winery.description %>
+      </td>
+      <td>
+        <%= winery.city %>
+      </td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
