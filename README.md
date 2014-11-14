@@ -1,14 +1,16 @@
 ![](https://travis-ci.org/figmentbml/wine-tracker.svg)
-
-Things I'm hoping Wine Tracker will do:
-- user will input wine they have had (manually and ideally using your smart phone's item scanner)
-    - in order to remember wines they liked
-    - come up with general preferences
-    - explore wine, learn about different wine regions
-- user could input cost and where they purchased it
-- social aspect or at least compile multiple users data to:
-    - average ratings
-    - average cost
-    - alert to great deal on wine if someone just put a wine in for under average price.  would alert users in the area to deal.
-
 Heroku link: http://frozen-plains-8303.herokuapp.com/
+
+Tracker can do:
+- Users can register/sign in/sign out
+- Users can add wine
+- Users can browse Colorado wineries and their info
+- Users can learn about how to taste wine
+
+Tracker will do:
+- Offer users an advanced user option to have a lot of tasting notes
+- Users can rate wine and input basic tasting notes
+- Learn about Colorado Wine region
+- User can input cost and where they purchased it
+- Site will compile users' data for ratings and average cost
+- Send an alert for a wine if it's below average inputed price.

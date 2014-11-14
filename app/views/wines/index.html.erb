@@ -19,8 +19,8 @@
       <td><%= wine.grape_varietal %></td>
       <td><%= wine.vineyard %></td>
       <td><%= wine.year %></td>
-      <td><%= link_to "Edit", edit_wine_path(wine) %></td>
-      <td><%= link_to "Delete", method: :delete, data: {confirm: "Are you sure?"} %></td>
+      <td><%= link_to "Edit", edit_wine_path(wine), class: "btn btn-success" %></td>
+      <td><%= link_to "Delete", wine, class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %></td>
     </tr>
     <% end %>
   </tbody>
