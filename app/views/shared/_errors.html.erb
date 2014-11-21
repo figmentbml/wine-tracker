@@ -1,5 +1,7 @@
 <% if instance.errors.present? %>
-  <% instance.errors.full_messages.each do |message| %>
-    <p class="text-danger"><%= message %></p>
+  <h3 class="text-danger"><%= pluralize(instance.errors.count, "error") %> prohibited this from being saved:</h3>
+    <% instance.errors.full_messages.each do |message| %>
+      <p class="text-danger"><%= message %></p>
     <% end %>
+  </ul>
 <% end %>
