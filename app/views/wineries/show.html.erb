@@ -4,7 +4,7 @@
 
 <div class="row">
   <div class="pull-left">
-    <%= image_tag "thor.jpg", class: "img-responsive img-thumbnail" %>
+    <%= image_tag @winery.winery_pic, class: "img-responsive img-thumbnail" %>
   </div>
   <p class="text-left">
     <strong>Rating:</strong> <%= @winery.rating %>
@@ -20,5 +20,8 @@
   </p>
   <p class="text-left">
     <strong>Email:</strong> <%= mail_to(@winery.email) %>
+  </p>
+  <p class="text-left">
+    <strong>Website:</strong> <%= link_to @winery.website, "http://#{@winery.website}" %>
   </p>
 </div>

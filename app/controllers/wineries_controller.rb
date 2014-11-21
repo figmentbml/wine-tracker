@@ -1,4 +1,5 @@
 class WineriesController < ApplicationController
+
   before_action :set_winery, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -53,6 +54,8 @@ private
     :email,
     :rating,
     :description,
+    :winery_pic,
+    :website
     )
   end
 

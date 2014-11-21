@@ -78,9 +78,20 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <%= f.submit button_name, class: "btn btn-default"%>
+  <div class="row form-group">
+    <%= f.label :website, "Website", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :website, class: "form-control" %>
+    </div>
+
+    <%= f.label :winery_pic, "Picture", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.file_field :winery_pic, class: "form-control" %>
+    </div>
   </div>
-<br/>
+
+  <div class="row form-group">
+      <%= f.submit button_name, class: "btn btn-default"%>
+  </div>
   <% end %>
 </div>
