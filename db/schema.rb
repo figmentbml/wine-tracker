@@ -11,10 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121190239) do
+ActiveRecord::Schema.define(version: 20141121220855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "tasting_notes", force: true do |t|
+    t.integer  "wine_rating"
+    t.string   "color_depth"
+    t.string   "color_hue"
+    t.string   "color_clarity"
+    t.string   "aroma_intensity"
+    t.string   "aroma_age"
+    t.string   "aromas"
+    t.string   "taste_dry"
+    t.string   "taste_body"
+    t.string   "taste_acid"
+    t.string   "taste_tannin"
+    t.string   "taste_balance"
+    t.string   "taste_intensity"
+    t.string   "flavors"
+    t.string   "taste_finish"
+    t.string   "notes"
+    t.integer  "wine_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string "name"

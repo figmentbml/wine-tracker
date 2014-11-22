@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :wines
   resources :users
   resources :wineries
+  resources :tasting_notes
 
   get '/taste_wine' => "pages#taste_wine", as: :taste_wine
 
