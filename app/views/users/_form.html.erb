@@ -1,7 +1,7 @@
 <div class="form-horizontal">
   <%= form_for @user, url: signup_path do |f| %>
 
-<%= render "shared/errors", instance: @user %>
+  <%= render "shared/errors", instance: @user %>
 
   <div class="form-group">
     <%= f.label :name, "Name", class: "col-sm-2 control-label" %>
@@ -13,7 +13,7 @@
   <div class="form-group">
     <%= f.label :email, "Email", class: "col-sm-2 control-label" %>
     <div class="col-sm-4">
-        <%= f.email_field :email, class: "form-control" %>
+      <%= f.email_field :email, class: "form-control" %>
     </div>
   </div>
 

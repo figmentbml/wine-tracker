@@ -21,6 +21,12 @@ class TastingNotesController < ApplicationController
   end
 
   def update
+    @tasting_note.update(tasting_notes_params)
+    if tasting_note.save
+      redirect_to tasting_note_path
+    else
+      render :edit
+    end
   end
 
   def destroy

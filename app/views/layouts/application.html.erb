@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Wine Tracker</title>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= csrf_meta_tags %>
-    <%= javascript_include_tag 'application' %>
+<head>
+  <title>Wine Tracker</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'application' %>
 
-  </head>
-  <body>
-    <header class="navbar">
-      <div class="container">
-        <nav class="navbar navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><%= link_to "Wine Tracker", root_path %></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <% if current_user %>
-              <li><%= link_to current_user.name, user_path(current_user) %></li>
-              <li><%= link_to "Sign Out", signout_path %></li>
-            <% else %>
-              <li><%= link_to "Sign Up", signup_path %></li>
-              <li><%= link_to "Sign In", signin_path %></li>
-            <% end %>
-            <% if current_user %>
-            <li><%= link_to "Add Wine", new_wine_path %></li>
-            <li><%= link_to "Add Winery", new_winery_path %></li>
-            <% end %>
-            <li><%= link_to "Show Wines", wines_path %></li>
-            <li><%= link_to "Show Wineries", wineries_path %></li>
-            <li><%= link_to "How to Taste", taste_wine_path %></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-<%= notice %>
+</head>
+<body>
+  <header class="navbar">
     <div class="container">
-      <%= yield %>
+      <nav class="navbar navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Wine Tracker", root_path %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+          <li><%= link_to current_user.name, user_path(current_user) %></li>
+          <li><%= link_to "Sign Out", signout_path %></li>
+          <% else %>
+          <li><%= link_to "Sign Up", signup_path %></li>
+          <li><%= link_to "Sign In", signin_path %></li>
+          <% end %>
+          <% if current_user %>
+          <li><%= link_to "Add Wine", new_wine_path %></li>
+          <li><%= link_to "Add Winery", new_winery_path %></li>
+          <li><%= link_to "Add Tasting Note", new_tasting_note_path %></li>
+          <% end %>
+          <li><%= link_to "Show Wines", wines_path %></li>
+          <li><%= link_to "Show Wineries", wineries_path %></li>
+          <li><%= link_to "How to Taste", taste_wine_path %></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <%= notice %>
+  <div class="container">
+    <%= yield %>
     <hr>
     <div class="footer">
       Copyright &copy; <%= Time.zone.today.year %> Beth Jaswa |
       <%= link_to "http://www.linkedin.com/in/bethjaswa/" do %>
-        <%= image_tag("linked_in.png") %>
+      <%= image_tag("linked_in.png") %>
       <% end %> |
       <%= link_to "http://www.twitter.com/@figmentbml" do %>
-        <%= image_tag("Twitter_logo.png") %>
+      <%= image_tag("Twitter_logo.png") %>
       <% end %> |
     </div>
   </div>
-  </body>
+</body>
 
 </html>

@@ -1,5 +1,5 @@
 <div class="page-header">
-<h1><%= title %></h1>
+  <h1><%= title %></h1>
 </div>
 
 <div class="form">
@@ -88,7 +88,7 @@
     <div class="col-sm-2">
       <%= f.select(:taste_body, ["very light", "light", "medium", "medium-full", "full-bodied", "heavy or thick"],
       {include_blank: :true}, {class: "form-control"}) %>
-  </div>
+    </div>
 
     <%= f.label :taste_acid, "Acidity", class:"col-sm-2 control-label" %>
     <div class="col-sm-2">
@@ -111,7 +111,7 @@
       <%= f.select(:taste_balance, ["good", "okay", "unbalanced"],
       {include_blank: :true}, {class: "form-control"}) %>
       <%= f.text_field :taste_balance, class: "form-control" %>
-<!--If unbalanced, why? Too much alcohol, acid, tannin, and/or sugar? -->
+      <!--If unbalanced, why? Too much alcohol, acid, tannin, and/or sugar? -->
     </div>
 
     <%= f.label :flavors, "Flavors", class: "col-sm-2 control-label" %>

@@ -15,16 +15,16 @@ class Winery < ActiveRecord::Base
   end
 
   def upload
-  uploaded_io = params[:winery][:winery_pic]
-  File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
-    file.write(uploaded_io.read)
+    uploaded_io = params[:winery][:winery_pic]
+    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+      file.write(uploaded_io.read)
+    end
+
+    w = Winery.new
+    w.winery_pic = params[:file]
+    w.save!
+
   end
-
-  w = Winery.new
-  w.winery_pic = params[:file]
-  w.save!
-
-end
 
 
 
