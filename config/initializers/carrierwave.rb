@@ -17,6 +17,7 @@ CarrierWave.configure do |config|
     #:region                => ENV['S3_REGION']
     #:host                   => 's3.example.com',             # optional, defaults to nil
     #:endpoint               => 'https://s3.example.com:8080' # optional, defaults to nil
+  }
 
   # For testing, upload files to local `tmp` folder.
   # if Rails.env.test? || Rails.env.cucumber?
