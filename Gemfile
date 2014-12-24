@@ -37,6 +37,8 @@ gem "mini_magick"
 # file upload solution
 gem 'carrierwave'
 
+gem 'yelp', require: 'yelp'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
