@@ -1,5 +1,5 @@
 ![](https://travis-ci.org/figmentbml/wine-tracker.svg)
-Heroku link: http://frozen-plains-8303.herokuapp.com/
+www.wine-tracker.co
 
 [![Code Climate](https://codeclimate.com/github/figmentbml/wine-tracker/badges/gpa.svg)](https://codeclimate.com/github/figmentbml/wine-tracker)
 
