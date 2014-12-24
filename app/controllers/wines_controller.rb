@@ -1,4 +1,5 @@
 class WinesController < ApplicationController
+  before_action :ensure_logged_in_user, except: [:index, :show]
 
   def index
     @wines = Wine.all

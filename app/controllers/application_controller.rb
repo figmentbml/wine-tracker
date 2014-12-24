@@ -9,4 +9,12 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  private
+
+  def ensure_logged_in_user
+    unless current_user
+      redirect_to signin_path, notice: "Please sign in first"
+    end
+  end
+
 end

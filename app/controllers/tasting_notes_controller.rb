@@ -1,5 +1,5 @@
-class TastingNotesController < ApplicationController
-  before_action :set_tasting_notes, only: [:show, :edit, :update, :destroy]
+class TastingNotesController < InternalController
+  before_action :set_tasting_note, only: [:show, :edit, :update, :destroy]
 
   def index
     @tasting_notes = TastingNote.all
@@ -33,7 +33,7 @@ class TastingNotesController < ApplicationController
   end
 
   private
-  def set_tasting_notes
+  def set_tasting_note
     @tasting_note = TastingNote.find(params[:id])
   end
 
