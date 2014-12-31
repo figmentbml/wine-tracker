@@ -1,6 +1,6 @@
-require 'yelp'
+# require 'yelp'
 
-class Yelp
+# class Yelp
 #
 #   def initialize(YOUR_CONSUMER_KEY, YOUR_CONSUMER_SECRET, YOUR_TOKEN, YOUR_TOKEN_SECRET)
 #     Yelp.client.configure do |config|
@@ -13,4 +13,4 @@ class Yelp
 #
   #Yelp.client.search('San Francisco', { term: 'food' })
 
-end
+# end
