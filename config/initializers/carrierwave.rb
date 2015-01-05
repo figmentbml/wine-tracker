@@ -13,7 +13,7 @@ CarrierWave.configure do |config|
     # Configuration for Amazon S3
     :provider               => 'AWS',                        # required
     :aws_access_key_id     => ENV['S3_KEY'],
-    :aws_secret_access_key => `ENV['S3_SECRET']`
+    :aws_secret_access_key => ENV['S3_SECRET']
     #:region                => ENV['S3_REGION']
     #:host                   => 's3.example.com',             # optional, defaults to nil
     #:endpoint               => 'https://s3.example.com:8080' # optional, defaults to nil
