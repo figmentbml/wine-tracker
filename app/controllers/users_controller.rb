@@ -27,7 +27,12 @@ class UsersController < InternalController
 
   def update
     @user.save(user_params)
-    redirect_to root_path
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -47,7 +52,9 @@ class UsersController < InternalController
     :email,
     :password,
     :password_confirmation,
-    :location)
+    :location,
+    :admin,
+    :advanced)
   end
 
 end

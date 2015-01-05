@@ -32,6 +32,13 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :advanced, "Advanced Membership?", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.check_box :advanced, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
     <div class="col-sm-offset-2 col-sm-4">
       <%= f.submit button_name, class: "btn btn-default" %>
     </div>
