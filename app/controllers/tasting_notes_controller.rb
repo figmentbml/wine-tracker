@@ -11,7 +11,11 @@ class TastingNotesController < InternalController
 
   def create
     @tasting_note = TastingNote.new(tasting_notes_params)
-    @tasting_note.save
+    if @tasting_note.save
+      redirect_to tasting_notes_path, notice: "Your note was successfully created!"
+    else
+      render :new
+    end
   end
 
   def show
@@ -30,6 +34,8 @@ class TastingNotesController < InternalController
   end
 
   def destroy
+    @tasting_note.destroy
+    redirect_to tasting_notes_path, notice: "Your note was successfully deleted."
   end
 
   private
@@ -38,7 +44,7 @@ class TastingNotesController < InternalController
   end
 
   def tasting_notes_params
-    params.required(:tasting_notes).permit(
+    params.required(:tasting_note).permit(
     :wine_rating,
     :color_depth,
     :color_hue,
