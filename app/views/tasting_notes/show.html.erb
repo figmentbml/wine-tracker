@@ -1,29 +1,86 @@
 <div class="page-header">
-  <h1><%= @wine.name %></h1>
+  <div class="pull-right">
+    <% if @tasting_note.updated_at.present? %>
+    <h5>Updated at <%= @tasting_note.updated_at.strftime("%m/%d/%Y") %></h5>
+    <% else %>
+    <h5>Created at <%= @tasting_note.created_at.strftime("%m/%d/%Y") %></h5>
+    <% end %>
+  </div>
+  <h1>Name</h1>
 </div>
 
+<div class="row">
+  <p class="text-left">
+    <strong>Rating:</strong> <%= @tasting_note.wine_rating %>
+  </p>
+</div>
 
+<div class="row">
+  <p class="lead">
+    Color
+  </p>
+  <p class="text-left">
+    <strong>Depth:</strong> <%= @tasting_note.color_depth %>
+  </p>
+  <p class="text-left">
+    <strong>Hue:</strong> <%= @tasting_note.color_hue %>
+  </p>
+  <p class="text-left">
+    <strong>Clarity:</strong> <%= @tasting_note.color_clarity %>
+  </p>
+</div>
 
+<div class="row">
+  <p class="lead">
+    Aroma
+  </p>
+  <p class="text-left">
+    <strong>Intensity:</strong> <%= @tasting_note.aroma_intensity %>
+  </p>
+  <p class="text-left">
+    <strong>Age:</strong> <%= @tasting_note.aroma_age %>
+  </p>
+  <p class="text-left">
+    <strong>List Aromas:</strong> <%= @tasting_note.aromas %>
+  </p>
+</div>
 
+<div class="row">
+  <p class="lead">
+    Taste
+  </p>
+  <p class="text-left">
+    <strong>Dry/Sweet:</strong> <%= @tasting_note.taste_dry %>
+  </p>
+  <p class="text-left">
+    <strong>Body:</strong> <%= @tasting_note.taste_body %>
+  </p>
+  <p class="text-left">
+    <strong>Acidity:</strong> <%= @tasting_note.taste_acid %>
+  </p>
+  <p class="text-left">
+    <strong>Tannin (if any):</strong> <%= @tasting_note.taste_tannin %>
+  </p>
+  <p class="text-left">
+    <strong>Balance:</strong> <%= @tasting_note.taste_balance %>
+  </p>
+  <p class="text-left">
+    <strong>Flavors:</strong> <%= @tasting_note.flavors %>
+  </p>
+  <p class="text-left">
+    <strong>Finish:</strong> <%= @tasting_note.taste_finish %>
+  </p>
+</div>
 
-create_table "tasting_notes", force: true do |t|
-  t.integer  "wine_rating"
-  t.string   "color_depth"
-  t.string   "color_hue"
-  t.string   "color_clarity"
-  t.string   "aroma_intensity"
-  t.string   "aroma_age"
-  t.string   "aromas"
-  t.string   "taste_dry"
-  t.string   "taste_body"
-  t.string   "taste_acid"
-  t.string   "taste_tannin"
-  t.string   "taste_balance"
-  t.string   "taste_intensity"
-  t.string   "flavors"
-  t.string   "taste_finish"
-  t.string   "notes"
-  t.integer  "wine_id"
-  t.integer  "user_id"
-  t.datetime "created_at"
-  t.datetime "updated_at"
+<div class="row">
+  <p class="lead">
+    Notes
+  </p>
+  <p>
+    <%= @tasting_note.notes %>
+  </p>
+</div>
+
+<%= link_to 'Edit', edit_tasting_note_path(@tasting_note), class: "btn btn-default" %>
+<%= link_to 'Delete', tasting_note_path(@tasting_note), class: "btn btn-default", method: :delete,
+data: {confirm:"Are you sure?" } %>
