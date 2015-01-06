@@ -1,0 +1,42 @@
+<div class="page-header">
+  <h1>Tasting Notes</h1>
+</div>
+
+<table class= "table">
+  <thead>
+    <tr>
+      <td>
+        Rating
+      </td>
+      <td>
+        Name
+      </td>
+      <td>
+        Flavors
+      </td>
+      <td>
+        Notes
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasting_notes.each do |note| %>
+    <tr>
+      <td>
+        <%= link_to note.wine_rating, tasting_note_path(note) %>
+      </td>
+      <td>
+        <p>
+          name
+        </p>
+      </td>
+      <td>
+        <%= note.flavors %>
+      </td>
+      <td>
+        <%= note.notes %>
+      </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
