@@ -1,5 +1,6 @@
-class UsersController < InternalController
+class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_logged_in_user, except: [:new, :create]
 
   def index
     @users = User.all
@@ -25,11 +26,11 @@ class UsersController < InternalController
   def edit
   end
 
+
   def update
-    @user.save(user_params)
+    @user.update(user_params)
     if @user.save
-      session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to users_path, notice: "User was successfully updated."
     else
       render :edit
     end
