@@ -17,4 +17,9 @@
   <dd> <%= @user.advanced %></dd>
 </dl>
 
+<dl class="dl-horizontal">
+  <dt>Admin?</dt>
+  <dd> <%= @user.admin %></dd>
+</dl>
+
 <%= link_to 'Edit User', edit_user_path, class: "btn btn-info btn-default" %>

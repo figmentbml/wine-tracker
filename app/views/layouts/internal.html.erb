@@ -24,8 +24,8 @@
           <% end %>
           <% if current_user.admin %>
           <li><%= link_to "Add Winery", new_winery_path %></li>
-          <% else %>
           <li><%= link_to "Add Wine", new_wine_path %></li>
+          <% else %>
           <li><%= link_to "Add Tasting Note", new_tasting_note_path %></li>
           <li><%= link_to "My Tasting Notes", tasting_notes_path %> </li>
           <li><%= link_to "Show Wines", wines_path %></li>
