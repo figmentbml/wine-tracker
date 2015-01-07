@@ -55,6 +55,12 @@
       <%= link_to "http://www.twitter.com/@figmentbml" do %>
       <%= image_tag("Twitter_logo.png") %>
       <% end %> |
+      <div class="pull-left">
+        <% if current_user && current_user.admin %>
+        <%= link_to "Users", users_path %>  |
+        <%= link_to "Add Winery", new_winery_path %>
+        <% end %>
+      </div>
     </div>
   </div>
 </body>
