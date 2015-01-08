@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150105224006) do
+ActiveRecord::Schema.define(version: 20150108003817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,11 @@ ActiveRecord::Schema.define(version: 20150105224006) do
     t.datetime "updated_at"
     t.string   "website"
     t.string   "winery_pic"
+    t.string   "yelp_id"
+    t.string   "yelp_url"
+    t.string   "yelp_review_count"
+    t.integer  "yelp_rating"
+    t.string   "yelp_rating_img_small"
   end
 
   create_table "wines", force: true do |t|
