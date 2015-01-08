@@ -4,10 +4,15 @@
 
 <div class="row">
   <div class="pull-left">
+    <% if @winery.winery_pic.present? %>
     <%= image_tag @winery.winery_pic, class: "img-responsive img-thumbnail" %>
+    <% end %>
   </div>
   <p class="text-left">
-    <strong>Rating:</strong> <%= @winery.rating %>
+    <strong>Rating:</strong> <%= image_tag @winery.yelp_rating_img_small %>
+  </p>
+  <p class="text-left">
+    <%= image_tag("reviewsFromYelpRED.gif") %> <%= @winery.yelp_review_count %>
   </p>
   <p class="text-left">
     <strong>Address:</strong> <%= @winery.full_address %>
@@ -23,5 +28,8 @@
   </p>
   <p class="text-left">
     <strong>Website:</strong> <%= link_to @winery.website, "http://#{@winery.website}" %>
+  </p>
+  <p class="text-left">
+    <strong>Yelp site:</strong> <%= link_to @winery.yelp_url, "http://#{@winery.yelp_url}" %>
   </p>
 </div>
