@@ -1,32 +1,42 @@
-<div class="form">
+<div class="form-horizontal">
   <%= form_for(@wine) do |f| %>
 
   <%= render "shared/errors", instance: @wine %>
 
   <div class="form-group">
-    <%= f.label :rating, "Rating", class: "control-label" %>
+    <%= f.label :rating, "Rating", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.number_field :rating, class: "form-control" %>
+    </div>
   </div>
-  <%= f.number_field :rating, class: "form-control" %>
 
   <div class="form-group">
-    <%= f.label :grape_varietal, "Grape Varietal", class: "control-label" %>
+    <%= f.label :grape_varietal, "Grape Varietal", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.select :grape_varietal, "varietals", {include_blank: :true}, {class: "form-control"} %>
+    </div>
   </div>
-  <%= f.select :grape_varietal, "varietals", {include_blank: :true}, {class: "form-control"} %>
 
   <div class="form-group">
-    <%= f.label :state, "State", class: "control-label" %>
+    <%= f.label :state, "State", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.select :state, "Colorado", {include_blank: "Colorado"}, {class: "form-control"} %>
+    </div>
   </div>
-  <%= f.select :state, "Colorado", {include_blank: "Colorado"}, {class: "form-control"} %>
 
   <div class="form-group">
-    <%= f.label :vineyard, "Vineyard", class: "control-label" %>
+    <%= f.label :vineyard, "Vineyard", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.text_field :vineyard, class: "form-control"  %>
+    </div>
   </div>
-  <%= f.text_field :vineyard, class: "form-control"  %>
 
   <div class="form-group">
-    <%= f.label :year, "Year", class: "control-label" %>
+    <%= f.label :year, "Year", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.number_field :year, class: "form-control"  %>
+    </div>
   </div>
-  <%= f.number_field :year, class: "form-control"  %>
 
   <div class="form-group">
     <%= f.submit name: button_name, class: "btn btn-default"%>
