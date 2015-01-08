@@ -37,9 +37,9 @@
       <td>
         <%= winery.city %>
       </td>
-      <% if current_user && current_user.admin %>
-        <td><%= link_to "Edit", edit_winery_path(winery), class: "btn btn-success" %></td>
-        <td><%= link_to "Delete", winery, class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %></td>
+      <% if current_user.admin == true %>
+        <td><%= link_to "Edit", edit_winery_path(winery) %></td>
+        <td><%= link_to "Delete", winery, method: :delete, data: {confirm: "Are you sure?"} %></td>
       <% end %>
       </tr>
       <% end %>
