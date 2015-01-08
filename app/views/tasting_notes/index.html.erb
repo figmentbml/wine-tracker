@@ -6,10 +6,16 @@
   <thead>
     <tr>
       <td>
+        Date
+      </td>
+      <td>
         Rating
       </td>
       <td>
         Name
+      </td>
+      <td>
+        Winery
       </td>
       <td>
         Flavors
@@ -23,6 +29,9 @@
     <% @tasting_notes.each do |note| %>
     <tr>
       <td>
+        <%= note.updated_at.strftime("%m/%d/%Y") %>
+      </td>
+      <td>
         <%= link_to note.wine_rating, tasting_note_path(note) %>
       </td>
       <td>
@@ -31,10 +40,19 @@
         </p>
       </td>
       <td>
+        winery
+      </td>
+      <td>
         <%= note.flavors %>
       </td>
       <td>
         <%= note.notes %>
+      </td>
+      <td>
+        <%= link_to "Edit", edit_tasting_note_path(note) %>
+      </td>
+      <td>
+        <%= link_to "Delete", tasting_note_path(note), method: :delete, data: {confirm: "Are you sure?"} %>
       </td>
       </tr>
       <% end %>

@@ -1,86 +1,123 @@
 <div class="page-header">
   <div class="pull-right">
-    <% if @tasting_note.updated_at.present? %>
+    <% if @tasting_note.updated_at != @tasting_note.created_at %>
     <h5>Updated at <%= @tasting_note.updated_at.strftime("%m/%d/%Y") %></h5>
     <% else %>
     <h5>Created at <%= @tasting_note.created_at.strftime("%m/%d/%Y") %></h5>
     <% end %>
+    <h5>
+      Rating: <%= @tasting_note.wine_rating %>
+    </h5>
   </div>
   <h1>Name</h1>
 </div>
 
 <div class="row">
-  <p class="text-left">
-    <strong>Rating:</strong> <%= @tasting_note.wine_rating %>
-  </p>
+  <div class="col-md-6">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title">
+          Details
+        </h2>
+      </div>
+      <div class="panel-body">
+        <p>
+          <strong>Varietal:</strong>
+        </p>
+        <p>
+          <strong>Year:</strong>
+        </p>
+        <p>
+          <strong>Winery:</strong>
+        </p>
+        <p>
+          <strong>Year:</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title">
+          Notes
+        </h2>
+      </div>
+      <div class="panel-body">
+        <p>
+          <%= @tasting_note.notes %>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="row">
-  <p class="lead">
-    Color
-  </p>
-  <p class="text-left">
-    <strong>Depth:</strong> <%= @tasting_note.color_depth %>
-  </p>
-  <p class="text-left">
-    <strong>Hue:</strong> <%= @tasting_note.color_hue %>
-  </p>
-  <p class="text-left">
-    <strong>Clarity:</strong> <%= @tasting_note.color_clarity %>
-  </p>
+  <div class="col-md-4">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title">Color</h2>
+      </div>
+      <div class="panel-body">
+        <p>
+          <strong>Depth:</strong> <%= @tasting_note.color_depth %>
+        </p>
+        <p>
+          <strong>Hue:</strong> <%= @tasting_note.color_hue %>
+        </p>
+        <p>
+          <strong>Clarity:</strong> <%= @tasting_note.color_clarity %>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title">Aroma</h2>
+      </div>
+      <div class="panel-body">
+        <p>
+          <strong>Intensity:</strong> <%= @tasting_note.aroma_intensity %>
+        </p>
+        <p>
+          <strong>Age:</strong> <%= @tasting_note.aroma_age %>
+        </p>
+        <p>
+          <strong>List Aromas:</strong> <%= @tasting_note.aromas %>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title">Taste</h2>
+      </div>
+      <div class="panel-body">
+        <p>
+          <strong>Dry/Sweet:</strong> <%= @tasting_note.taste_dry %>
+        </p>
+        <p>
+          <strong>Body:</strong> <%= @tasting_note.taste_body %>
+        </p>
+        <p>
+          <strong>Acidity:</strong> <%= @tasting_note.taste_acid %>
+        </p>
+        <p>
+          <strong>Tannin (if any):</strong> <%= @tasting_note.taste_tannin %>
+        </p>
+        <p>
+          <strong>Balance:</strong> <%= @tasting_note.taste_balance %>
+        </p>
+        <p>
+          <strong>Flavors:</strong> <%= @tasting_note.flavors %>
+        </p>
+        <p>
+          <strong>Finish:</strong> <%= @tasting_note.taste_finish %>
+        </p>
+      </div>
+    </div>
+    </div>
+  </div>
 </div>
-
-<div class="row">
-  <p class="lead">
-    Aroma
-  </p>
-  <p class="text-left">
-    <strong>Intensity:</strong> <%= @tasting_note.aroma_intensity %>
-  </p>
-  <p class="text-left">
-    <strong>Age:</strong> <%= @tasting_note.aroma_age %>
-  </p>
-  <p class="text-left">
-    <strong>List Aromas:</strong> <%= @tasting_note.aromas %>
-  </p>
-</div>
-
-<div class="row">
-  <p class="lead">
-    Taste
-  </p>
-  <p class="text-left">
-    <strong>Dry/Sweet:</strong> <%= @tasting_note.taste_dry %>
-  </p>
-  <p class="text-left">
-    <strong>Body:</strong> <%= @tasting_note.taste_body %>
-  </p>
-  <p class="text-left">
-    <strong>Acidity:</strong> <%= @tasting_note.taste_acid %>
-  </p>
-  <p class="text-left">
-    <strong>Tannin (if any):</strong> <%= @tasting_note.taste_tannin %>
-  </p>
-  <p class="text-left">
-    <strong>Balance:</strong> <%= @tasting_note.taste_balance %>
-  </p>
-  <p class="text-left">
-    <strong>Flavors:</strong> <%= @tasting_note.flavors %>
-  </p>
-  <p class="text-left">
-    <strong>Finish:</strong> <%= @tasting_note.taste_finish %>
-  </p>
-</div>
-
-<div class="row">
-  <p class="lead">
-    Notes
-  </p>
-  <p>
-    <%= @tasting_note.notes %>
-  </p>
-</div>
-
-<%= link_to 'Edit', edit_tasting_note_path(@tasting_note), class: "btn btn-default" %>
-<%= link_to 'Delete', tasting_note_path(@tasting_note), class: "btn btn-default", method: :delete,
-data: {confirm:"Are you sure?" } %>
