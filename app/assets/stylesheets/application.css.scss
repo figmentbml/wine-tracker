@@ -16,9 +16,16 @@ html,
 a,
 a:focus,
 a:hover {
-  color: blue;
+  color: #428bca;
 }
 
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-nav {
+  float: none;
+}
 // .btn-default,
 // .btn-default:hover,
 // .btn-default:focus {
