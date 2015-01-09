@@ -1,1 +1,21 @@
-SHOW
+<div class="page-header">
+  <h1><%= @wine.name %></h1>
+</div>
+
+<div class="row">
+  <% if @wine.wine_pic.present? %>
+    <%= image_tag @wine.wine_pic, class: "img-responsive img-thumbnail" %>
+  <% end %>
+  <p class="text-left">
+    <strong>Grape Varietal:</strong> <%= @wine.grape_varietal %>
+  </p>
+  <p class="text-left">
+    <strong>Vineyard:</strong> <%= @wine.vineyard %>
+  </p>
+  <p class="text-left">
+    <strong>Year:</strong> <%= @wine.year %>
+  </p>
+  <p class="text-left">
+    <strong>Winery:</strong> <%= @wine.winery_id %>
+  </p>
+</div>
