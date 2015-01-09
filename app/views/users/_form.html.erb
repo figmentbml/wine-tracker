@@ -4,28 +4,28 @@
   <%= render "shared/errors", instance: @user %>
 
   <div class="form-group">
-    <%= f.label :name, "Name", class: "col-sm-2 control-label" %>
+    <%= f.label :name, "Name*", class: "col-sm-2 control-label" %>
     <div class="col-sm-4">
       <%= f.text_field :name, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :email, "Email", class: "col-sm-2 control-label" %>
+    <%= f.label :email, "Email*", class: "col-sm-2 control-label" %>
     <div class="col-sm-4">
       <%= f.email_field :email, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :password, "Password", class: "col-sm-2 control-label" %>
+    <%= f.label :password, "Password*", class: "col-sm-2 control-label" %>
     <div class="col-sm-4">
       <%= f.password_field :password, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :password_confirmation, "Password Confirm", class: "col-sm-2 control-label" %>
+    <%= f.label :password_confirmation, "Password Confirm*", class: "col-sm-2 control-label" %>
     <div class="col-sm-4">
       <%= f.password_field :password_confirmation, class: "form-control" %>
     </div>
@@ -37,6 +37,15 @@
       <%= f.check_box :advanced, class: "form-control" %>
     </div>
   </div>
+
+  <% if current_user && current_user.admin %>
+  <div class="form-group">
+    <%= f.label :admin, "Admin?", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.check_box :admin, class: "form-control" %>
+    </div>
+  </div>
+  <% end %>
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-4">
