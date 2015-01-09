@@ -19,6 +19,16 @@ class ApplicationController < ActionController::Base
   helper_method :admin?
   helper_method :advanced?
 
+
+  class AccessDenied < StandardError
+  end
+
+  rescue_from AccessDenied, with: :render_404
+
+  def render_404
+    render 'public/404', status: :not_found, layout: false
+  end
+
   private
 
   def ensure_logged_in_user
@@ -26,5 +36,14 @@ class ApplicationController < ActionController::Base
       redirect_to signin_path, notice: "Please sign in first"
     end
   end
+
+  def current_user_notes
+    notes_list = TastingNote.where(user_id: current_user.id).pluck(:id)
+    @tasting_note = TastingNote.find(params[:id])
+    unless admin? || notes_list.include?(@tasting_note.id)
+      raise AccessDenied
+    end
+  end
+
 
 end
