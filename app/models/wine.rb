@@ -1,4 +1,5 @@
 class Wine < ActiveRecord::Base
+  mount_uploader :wine_pic, WinePicUploader
 
   validates :grape_varietal, presence: true
   validates :name, presence: true
