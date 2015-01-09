@@ -7,7 +7,17 @@ class ApplicationController < ActionController::Base
     User.find_by(id: session[:user_id])
   end
 
+  def admin?
+    current_user.admin == true
+  end
+
+  def advanced?
+    current_user.advanced == true
+  end
+
   helper_method :current_user
+  helper_method :admin?
+  helper_method :advanced?
 
   private
 

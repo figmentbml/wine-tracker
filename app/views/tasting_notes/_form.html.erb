@@ -39,33 +39,43 @@
           </h2>
         </div>
         <div class="panel-body">
-          <div class="row form-group">
-            <%= f.label :color_depth, "Depth", class: "col-sm-4 control-label" %>
-            <div class= "col-sm-8">
-              <%= f.select(:color_depth, ["watery", "light", "medium", "deep", "dark"],
-              {include_blank: :true}, {class: "form-control"}) %>
+          <% if current_user.advanced? || current_user.admin? %>
+            <div class="row form-group">
+              <%= f.label :color_depth, "Depth", class: "col-sm-4 control-label" %>
+              <div class= "col-sm-8">
+                <%= f.select(:color_depth, ["watery", "light", "medium", "deep", "dark"],
+                {include_blank: :true}, {class: "form-control"}) %>
+              </div>
             </div>
-          </div>
+          <% end %>
 
           <div class="row form-group">
             <%= f.label :color_hue, "Hue", class: "col-sm-4 control-label"%>
             <div class= "col-sm-8">
-              <%= f.select(:color_hue, ["greenish", "yellow", "straw yellow", "gold", "amber"],
-              {include_blank: "White Wine"}, {class: "form-control"}) %>
-              <%= f.select(:color_hue, ["purpleish", "ruby", "red", "garnet", "brick", "brown"],
-              {include_blank: "Red Wine"}, {class: "form-control"}) %>
-              <%= f.select(:color_hue, ["pink", "salmon", "orange", "copper"],
-              {include_blank: "Rose Wine"}, {class: "form-control"}) %>
+              <div class="form-group off-set-col-sm-2">
+                <%= f.select(:color_hue, ["greenish", "yellow", "straw yellow", "gold", "amber"],
+                {include_blank: "White Wine"}, {class: "form-control"}) %>
+              </div>
+              <div class="form-group off-set-col-sm-2">
+                <%= f.select(:color_hue, ["purpleish", "ruby", "red", "garnet", "brick", "brown"],
+                {include_blank: "Red Wine"}, {class: "form-control"}) %>
+              </div>
+              <div class="off-set-col-sm-2">
+                <%= f.select(:color_hue, ["pink", "salmon", "orange", "copper"],
+                {include_blank: "Rose Wine"}, {class: "form-control"}) %>
+              </div>
             </div>
           </div>
 
-          <div class="row form-group">
-            <%= f.label :color_clarity, "Clarity", class: "col-sm-4 control-label" %>
-            <div class= "col-sm-8">
-              <%= f.select(:color_clarity, ["clear", "slight haze", "cloudy"],
-              {include_blank: :true}, {class:"form-control"}) %>
+          <% if current_user.advanced? || current_user.admin? %>
+            <div class="row form-group">
+              <%= f.label :color_clarity, "Clarity", class: "col-sm-4 control-label" %>
+              <div class= "col-sm-8">
+                <%= f.select(:color_clarity, ["clear", "slight haze", "cloudy"],
+                {include_blank: :true}, {class:"form-control"}) %>
+              </div>
             </div>
-          </div>
+          <% end %>
         </div>
       </div>
       <div class="panel panel-info">
@@ -75,21 +85,23 @@
           </h2>
         </div>
         <div class="panel-body">
-          <div class="row form-group">
-            <%= f.label :aroma_intensity, "Intensity", class: "col-sm-4 control-label"  %>
-            <div class= "col-sm-8">
-              <%= f.select(:aroma_intensity, ["low", "medium", "powerful"],
-              {include_blank: :true}, {class: "form-control"})%>
+          <% if current_user.advanced? || current_user.admin? %>
+            <div class="row form-group">
+              <%= f.label :aroma_intensity, "Intensity", class: "col-sm-4 control-label"  %>
+              <div class= "col-sm-8">
+                <%= f.select(:aroma_intensity, ["low", "medium", "powerful"],
+                {include_blank: :true}, {class: "form-control"})%>
+              </div>
             </div>
-          </div>
 
-          <div class="row form-group">
-            <%= f.label :aroma_age, "Age", class: "col-sm-4 control-label" %>
-            <div class= "col-sm-8">
-              <%= f.select(:aroma_age, ["young", "some age", "aged"],
-              {include_blank: :true}, {class: "form-control"}) %>
+            <div class="row form-group">
+              <%= f.label :aroma_age, "Age", class: "col-sm-4 control-label" %>
+              <div class= "col-sm-8">
+                <%= f.select(:aroma_age, ["young", "some age", "aged"],
+                {include_blank: :true}, {class: "form-control"}) %>
+              </div>
             </div>
-          </div>
+          <% end %>
 
           <div class="row form-group">
             <%= f.label :aromas, "List Aromas", class: "col-sm-4 control-label" %>
@@ -116,43 +128,55 @@
               {include_blank: :true}, {class:"form-control"}) %>
             </div>
           </div>
-
-          <div class="row form-group">
-            <%= f.label :taste_body, "Body", class: "col-sm-4 control-label" %>
-            <div class="col-sm-8">
-              <%= f.select(:taste_body, ["very light", "light", "medium", "medium-full", "full-bodied", "heavy or thick"],
-              {include_blank: :true}, {class: "form-control"}) %>
+          <% if current_user.advanced? || current_user.admin? %>
+            <div class="row form-group">
+              <%= f.label :taste_body, "Body", class: "col-sm-4 control-label" %>
+              <div class="col-sm-8">
+                <%= f.select(:taste_body, ["very light", "light", "medium", "medium-full", "full-bodied", "heavy or thick"],
+                {include_blank: :true}, {class: "form-control"}) %>
+              </div>
             </div>
-          </div>
 
-          <div class="row form-group">
-            <%= f.label :taste_acid, "Acidity", class:"col-sm-4 control-label" %>
-            <div class="col-sm-8">
-              <%= f.select(:taste_acid, ["none", "tart", "crisp", "smooth"],
-              {include_blank: :true}, {class: "form-control"}) %>
+            <div class="row form-group">
+              <%= f.label :taste_acid, "Acidity", class:"col-sm-4 control-label" %>
+              <div class="col-sm-8">
+                <%= f.select(:taste_acid, ["none", "tart", "crisp", "smooth"],
+                {include_blank: :true}, {class: "form-control"}) %>
+              </div>
             </div>
-          </div>
 
-          <div class="row form-group">
-            <%= f.label :taste_tannin, "Tannin (if any)", class:"col-sm-4 control-label" %>
-            <div class= "col-sm-8">
-              <%= f.select(:taste_tannin, ["low", "medium", "high"],
-              {include_blank: "Level"}, {class: "form-control"}) %>
-              <%= f.select(:taste_tannin, ["soft", "round", "dry", "abrasive" ],
-              {include_blank: "Type"}, {class: "form-control"}) %>
+            <div class="row form-group">
+              <%= f.label :taste_tannin, "Tannin (if any)", class:"col-sm-4 control-label" %>
+              <div class= "col-sm-8">
+                <div class="form-group off-set-col-sm-2">
+                  <%= f.select(:taste_tannin, ["low", "medium", "high"],
+                  {include_blank: "Level"}, {class: "form-control"}) %>
+                </div>
+                <div class="off-set-col-sm-2">
+                  <%= f.select(:taste_tannin, ["soft", "round", "dry", "abrasive" ],
+                  {include_blank: "Type"}, {class: "form-control"}) %>
+                </div>
+              </div>
             </div>
-          </div>
 
-          <div class="row form-group">
-            <%= f.label :taste_balance, "Balance", class:"col-sm-4 control-label" %>
-            <div class="col-sm-8">
-              <%= f.select(:taste_balance, ["good", "okay", "unbalanced"],
-              {include_blank: :true}, {class: "form-control"}) %>
-              <%= f.text_field :taste_balance, class: "form-control" %>
-              <!--If unbalanced, why? Too much alcohol, acid, tannin, and/or sugar? -->
+            <div class="row form-group">
+              <%= f.label :taste_balance, "Balance", class:"col-sm-4 control-label" %>
+              <div class="col-sm-8">
+                <div class="form-group">
+                  <%= f.select(:taste_balance, ["good", "okay", "unbalanced"],
+                  {include_blank: :true}, {class: "form-control"}) %>
+                </div>
+                <div class="off-set-col-sm-2">
+                  <p>
+                    If unbalanced, why? Too much alcohol, acid, tannin, and/or sugar?
+                  </p>
+                </div>
+                <div class="off-set-col-sm-2">
+                  <%= f.text_field :taste_balance, class: "form-control" %>
+                </div>
+              </div>
             </div>
-          </div>
-
+          <% end %>
           <div class="row form-group">
             <%= f.label :flavors, "Flavors", class: "col-sm-4 control-label" %>
             <div class="col-sm-8">
@@ -160,13 +184,15 @@
             </div>
           </div>
 
-          <div class="row form-group">
-            <%= f.label :taste_finish, "Finish", class: "col-sm-4 control-label" %>
-            <div class="col-sm-8">
-              <%= f.select(:taste_finish, ["short/none", "medium", "long", "very long"],
-              {include_blank: :true}, {class: "form-control"}) %>
+          <% if current_user.advanced? || current_user.admin? %>
+            <div class="row form-group">
+              <%= f.label :taste_finish, "Finish", class: "col-sm-4 control-label" %>
+              <div class="col-sm-8">
+                <%= f.select(:taste_finish, ["short/none", "medium", "long", "very long"],
+                {include_blank: :true}, {class: "form-control"}) %>
+              </div>
             </div>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>

@@ -59,15 +59,19 @@
         <h2 class="panel-title">Color</h2>
       </div>
       <div class="panel-body">
-        <p>
-          <strong>Depth:</strong> <%= @tasting_note.color_depth %>
-        </p>
+        <% if current_user.advanced? || current_user.admin? %>
+          <p>
+            <strong>Depth:</strong> <%= @tasting_note.color_depth %>
+          </p>
+        <% end %>
         <p>
           <strong>Hue:</strong> <%= @tasting_note.color_hue %>
         </p>
-        <p>
-          <strong>Clarity:</strong> <%= @tasting_note.color_clarity %>
-        </p>
+        <% if current_user.advanced? || current_user.admin? %>
+          <p>
+            <strong>Clarity:</strong> <%= @tasting_note.color_clarity %>
+          </p>
+        <% end %>
       </div>
     </div>
   </div>
@@ -77,12 +81,14 @@
         <h2 class="panel-title">Aroma</h2>
       </div>
       <div class="panel-body">
-        <p>
-          <strong>Intensity:</strong> <%= @tasting_note.aroma_intensity %>
-        </p>
-        <p>
-          <strong>Age:</strong> <%= @tasting_note.aroma_age %>
-        </p>
+        <% if current_user.advanced? || current_user.admin? %>
+          <p>
+            <strong>Intensity:</strong> <%= @tasting_note.aroma_intensity %>
+          </p>
+          <p>
+            <strong>Age:</strong> <%= @tasting_note.aroma_age %>
+          </p>
+        <% end %>
         <p>
           <strong>List Aromas:</strong> <%= @tasting_note.aromas %>
         </p>
@@ -98,24 +104,28 @@
         <p>
           <strong>Dry/Sweet:</strong> <%= @tasting_note.taste_dry %>
         </p>
-        <p>
-          <strong>Body:</strong> <%= @tasting_note.taste_body %>
-        </p>
-        <p>
-          <strong>Acidity:</strong> <%= @tasting_note.taste_acid %>
-        </p>
-        <p>
-          <strong>Tannin (if any):</strong> <%= @tasting_note.taste_tannin %>
-        </p>
-        <p>
-          <strong>Balance:</strong> <%= @tasting_note.taste_balance %>
-        </p>
+        <% if current_user.advanced? || current_user.admin? %>
+          <p>
+            <strong>Body:</strong> <%= @tasting_note.taste_body %>
+          </p>
+          <p>
+            <strong>Acidity:</strong> <%= @tasting_note.taste_acid %>
+          </p>
+          <p>
+            <strong>Tannin (if any):</strong> <%= @tasting_note.taste_tannin %>
+          </p>
+          <p>
+            <strong>Balance:</strong> <%= @tasting_note.taste_balance %>
+          </p>
+        <% end %>
         <p>
           <strong>Flavors:</strong> <%= @tasting_note.flavors %>
         </p>
-        <p>
-          <strong>Finish:</strong> <%= @tasting_note.taste_finish %>
-        </p>
+        <% if current_user.advanced? || current_user.admin? %>
+          <p>
+            <strong>Finish:</strong> <%= @tasting_note.taste_finish %>
+          </p>
+        <% end %>
       </div>
     </div>
     </div>
