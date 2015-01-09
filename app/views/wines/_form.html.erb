@@ -4,7 +4,7 @@
   <%= render "shared/errors", instance: @wine %>
 
   <div class="form-group">
-    <%= f.label :name, "Name", class: "col-sm-2 control-label" %>
+    <%= f.label :name, "Name*", class: "col-sm-2 control-label" %>
     <div class="col-sm-4">
       <%= f.text_field :name, class: "form-control" %>
     </div>
@@ -15,20 +15,29 @@
     <div class="col-sm-4">
       <%= f.collection_select(:winery_id, Winery.all, :id, :name, {include_blank: :true}, {class: "form-control"}) %>
     </div>
+    <div class="col-sm-4">
+      <p>
+        If your winery isn't here, please suggest a new winery here!
+      </p>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :grape_varietal, "Grape Varietal", class: "col-sm-2 control-label" %>
+    <%= f.label :grape_varietal, "Grape Varietal*", class: "col-sm-2 control-label" %>
     <div class="col-sm-4">
-      <%= f.select :grape_varietal, "varietals", {include_blank: :true}, {class: "form-control"} %>
-      <% #f.collection_select(:grape_varietal, @varietals, :string, :string, {include_blank: :true}, {class: "form-control"}) %>
+      <%= f.select :grape_varietal, Wine.varietals, {include_blank: :true}, {class: "form-control"} %>
+    </div>
+    <div class="col-sm-4">
+      <p>
+        For blends, either choose the primary varietal or blend.
+      </p>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :state, "State", class: "col-sm-2 control-label" %>
     <div class="col-sm-4">
-      <%= f.select :state, "Colorado", {include_blank: "Colorado"}, {class: "form-control"} %>
+      <%= f.select :state, Wine.states, {include_blank: "Colorado"}, {class: "form-control"} %>
     </div>
   </div>
 
@@ -36,6 +45,11 @@
     <%= f.label :vineyard, "Vineyard", class: "col-sm-2 control-label" %>
     <div class="col-sm-4">
       <%= f.text_field :vineyard, class: "form-control"  %>
+    </div>
+    <div class="col-sm-4">
+      <p>
+        Might be the same as the winery.
+      </p>
     </div>
   </div>
 
@@ -47,40 +61,20 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :wine_pic, "Picture", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.file_field :wine_pic, class: "form-control" %>
+    </div>
+    <div class="col-sm-4">
+      <p>
+        Feel free to add pictures of the label or in a glass.
+      </p>
+    </div>
+  </div>
+
+  <div class="form-group">
     <%= f.submit name: button_name, class: "btn btn-primary"%>
   </div>
   <br/>
   <% end %>
 </div>
-
-<% @varietals = [
-'Barbera',
-'Cabernet Franc',
-'Cabernet Sauvingnon',
-'Chardonnay',
-'Grenache',
-'Gewurztraminer',
-'Malbec',
-'Marsanne',
-'Merlot',
-'Mourvedre',
-'Muscat',
-'Petite Sirah',
-'Petite Verdot',
-'Pinot Noir',
-'Pinot Gris',
-'Riesling',
-'Roussanne',
-'Sangiovese',
-'Sauvignon Blanc',
-'Semillon',
-'Syrah',
-'Shiraz',
-'Tannat',
-'Tempranillo',
-'Viognier',
-'Zinfandel',
-'Blend',
-'Other'
-]
-%>
