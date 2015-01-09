@@ -27,9 +27,9 @@
     <strong>Email:</strong> <%= mail_to(@winery.email) %>
   </p>
   <p class="text-left">
-    <strong>Website:</strong> <%= link_to @winery.website, "http://#{@winery.website}" %>
+    <strong>Website:</strong> <%= link_to @winery.website, "#{@winery.website}" %>
   </p>
   <p class="text-left">
-    <strong>Yelp site:</strong> <%= link_to @winery.yelp_url, "http://#{@winery.yelp_url}" %>
+    <strong>Yelp site:</strong> <%= link_to @winery.yelp_url, @winery.yelp_url %>
   </p>
 </div>

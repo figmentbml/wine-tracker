@@ -27,6 +27,7 @@
     <tr>
       <td>
         <%= image_tag winery.yelp_rating_img_small %>
+        <% winery.yelp_rating %>
       </td>
       <td>
         <%= link_to winery.name, winery_path(winery) %>
@@ -37,7 +38,7 @@
       <td>
         <%= winery.city %>
       </td>
-      <% if current_user.admin == true %>
+      <% if current_user && current_user.admin %>
         <td><%= link_to "Edit", edit_winery_path(winery) %></td>
         <td><%= link_to "Delete", winery, method: :delete, data: {confirm: "Are you sure?"} %></td>
       <% end %>

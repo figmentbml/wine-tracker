@@ -17,9 +17,11 @@
   <dd> <%= @user.advanced %></dd>
 </dl>
 
+<% if current_user && current_user.admin %>
 <dl class="dl-horizontal">
   <dt>Admin?</dt>
   <dd> <%= @user.admin %></dd>
 </dl>
+<% end %>
 
 <%= link_to 'Edit User', edit_user_path, class: "btn btn-info btn-default" %>
