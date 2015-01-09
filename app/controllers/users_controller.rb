@@ -55,7 +55,8 @@ class UsersController < ApplicationController
     :password_confirmation,
     :location,
     :admin,
-    :advanced)
+    :advanced,
+    :tasting_notes_id)
   end
 
 end

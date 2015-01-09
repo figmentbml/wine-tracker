@@ -55,7 +55,13 @@ private
     :rating,
     :description,
     :winery_pic,
-    :website
+    :website,
+    :yelp_id,
+    :yelp_url,
+    :yelp_review_count,
+    :yelp_rating,
+    :yelp_rating_img_small,
+    :wine_id
     )
   end
 
