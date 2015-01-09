@@ -8,6 +8,7 @@ class Winery < ActiveRecord::Base
   validates :zip, presence: true
   validates :phone_number, presence: true
 
+  has_many :wines
 
   def full_address
     "#{street} #{city} #{state} #{zip}"
