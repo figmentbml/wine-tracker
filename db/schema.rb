@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150108225608) do
+ActiveRecord::Schema.define(version: 20150109222649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,8 +44,9 @@ ActiveRecord::Schema.define(version: 20150108225608) do
     t.string  "email"
     t.string  "password_digest"
     t.string  "location"
-    t.boolean "admin",           default: false
-    t.boolean "advanced",        default: false
+    t.boolean "admin",            default: false
+    t.boolean "advanced",         default: false
+    t.integer "tasting_notes_id"
   end
 
   create_table "wineries", force: true do |t|
@@ -69,6 +70,7 @@ ActiveRecord::Schema.define(version: 20150108225608) do
     t.string   "yelp_review_count"
     t.integer  "yelp_rating"
     t.string   "yelp_rating_img_small"
+    t.integer  "wine_id"
   end
 
   create_table "wines", force: true do |t|
@@ -80,6 +82,8 @@ ActiveRecord::Schema.define(version: 20150108225608) do
     t.integer "rating"
     t.string  "name"
     t.integer "winery_id"
+    t.integer "tasting_notes_id"
+    t.string  "wine_pic"
   end
 
 end
