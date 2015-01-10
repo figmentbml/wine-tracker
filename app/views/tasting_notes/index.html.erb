@@ -58,7 +58,7 @@
         </tr>
         <% end %>
       <% else %>
-        <% current_user.tasting_notes.each do |note| %>
+        <% tasting_notes.each do |note| %>
         <tr>
           <td>
             <%= note.updated_at.strftime("%m/%d/%Y") %>
