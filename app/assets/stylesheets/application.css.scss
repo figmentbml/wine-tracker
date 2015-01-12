@@ -6,7 +6,7 @@ html,
     height: 100%;
 //    background-color: #333;
 //    color: #fff;
-    text-align: center;
+      text-align: center;
 //    text-shadow: 0 1px 3px rgba(0,0,0,.5);
 //    padding: 0;
 //    margin: 0;
@@ -25,6 +25,10 @@ a:hover {
 
 .navbar-nav {
   float: none;
+}
+
+div.page-header.left {
+  text-align: left;
 }
 
 div.text-left {
