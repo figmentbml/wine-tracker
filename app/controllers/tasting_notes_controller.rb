@@ -28,8 +28,8 @@ class TastingNotesController < ApplicationController
 
   def update
     @tasting_note.update(tasting_notes_params)
-    if tasting_note.save
-      redirect_to tasting_note_path
+    if @tasting_note.save
+      redirect_to tasting_note_path, notice: "Your note was successfully updated."
     else
       render :edit
     end
@@ -64,7 +64,8 @@ class TastingNotesController < ApplicationController
     :taste_finish,
     :notes,
     :wine_id,
-    :user_id
+    :user_id,
+    :date
     )
   end
 
