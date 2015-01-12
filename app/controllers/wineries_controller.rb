@@ -61,7 +61,8 @@ private
     :yelp_review_count,
     :yelp_rating,
     :yelp_rating_img_small,
-    :wine_id
+    :wine_id,
+    :approved
     )
   end
 

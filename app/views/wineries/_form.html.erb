@@ -79,6 +79,15 @@
     </div>
   </div>
 
+  <% if current_user && current_user.admin %>
+  <div class="row form-group">
+    <%= f.label :approved, "Approved?", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.check_box :approved, class: "form-control" %>
+    </div>
+  </div>
+  <% end %>
+
   <div class="row form-group">
     <%= f.submit button_name, class: "btn btn-primary"%>
   </div>
