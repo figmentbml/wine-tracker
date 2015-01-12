@@ -1,7 +1,7 @@
 class TastingNotesController < ApplicationController
   before_action :set_tasting_note, only: [:show, :edit, :update, :destroy]
   before_action :ensure_logged_in_user
-  before_action :current_user_notes, only: [:show, :edit, :update, :destroy]
+  #before_action :current_user_notes, only: [:show, :edit, :update, :destroy]
 
   def index
     @tasting_notes = TastingNote.all
