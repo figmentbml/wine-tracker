@@ -7,8 +7,8 @@ feature "Register" do
     click_on "Sign Up"
     fill_in "Name", with: "James"
     fill_in "Email", with: "jim@email.com"
-    fill_in "Password", with: "123"
-    fill_in "Password Confirm", with: "123"
+    fill_in "Password*", with: "123"
+    fill_in "Password Confirm*", with: "123"
     click_button "Sign Up"
     expect(page).to have_no_content("Sign Up")
     expect(page).to have_content("Sign Out")
@@ -19,8 +19,8 @@ feature "Register" do
     visit root_path
     click_on "Sign Up"
     fill_in "Email", with: "jim@email.com"
-    fill_in "Password", with: "123"
-    fill_in "Password Confirm", with: "123"
+    fill_in "Password*", with: "123"
+    fill_in "Password Confirm*", with: "123"
     click_button "Sign Up"
     expect(page).to have_no_content("Sign Out")
     expect(page).to have_content("Name can't be blank")
@@ -28,8 +28,8 @@ feature "Register" do
     visit root_path
     click_on "Sign Up"
     fill_in "Name", with: "James"
-    fill_in "Password", with: "123"
-    fill_in "Password Confirm", with: "123"
+    fill_in "Password*", with: "123"
+    fill_in "Password Confirm*", with: "123"
     click_button "Sign Up"
     expect(page).to have_no_content("Sign Out")
     expect(page).to have_content("Email can't be blank")
@@ -38,7 +38,7 @@ feature "Register" do
     click_on "Sign Up"
     fill_in "Name", with: "James"
     fill_in "Email", with: "jim@email.com"
-    fill_in "Password Confirm", with: "123"
+    fill_in "Password Confirm*", with: "123"
     click_button "Sign Up"
     expect(page).to have_no_content("Sign Out")
     expect(page).to have_content("Password can't be blank")
@@ -47,7 +47,7 @@ feature "Register" do
     click_on "Sign Up"
     fill_in "Name", with: "James"
     fill_in "Email", with: "jim@email.com"
-    fill_in "Password", with: "123"
+    fill_in "Password*", with: "123"
     click_button "Sign Up"
     expect(page).to have_no_content("Sign Out")
     expect(page).to have_content("Password confirmation doesn't match Password")
@@ -55,8 +55,8 @@ feature "Register" do
     visit root_path
     click_on "Sign Up"
     fill_in "Email", with: "jim@email.com"
-    fill_in "Password", with: "123"
-    fill_in "Password Confirm", with: "456"
+    fill_in "Password*", with: "123"
+    fill_in "Password Confirm*", with: "456"
     click_button "Sign Up"
     expect(page).to have_no_content("Sign Out")
     expect(page).to have_content("Password confirmation doesn't match Password")
