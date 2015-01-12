@@ -1,4 +1,4 @@
-<div class="page-header">
+<div class="page-header left">
   <h1><%= @winery.name %></h1>
 </div>
 
@@ -12,7 +12,7 @@
     <strong>Rating:</strong> <%= image_tag @winery.yelp_rating_img_small %>
   </p>
   <p class="text-left">
-    <%= image_tag("reviewsFromYelpRED.gif") %> <%= @winery.yelp_review_count %>
+    <%= @winery.yelp_review_count %> <%= image_tag("reviewsFromYelpRED.gif") %>
   </p>
   <p class="text-left">
     <strong>Address:</strong> <%= @winery.full_address %>
