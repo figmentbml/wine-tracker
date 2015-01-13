@@ -29,7 +29,9 @@
   <p class="text-left">
     <strong>Website:</strong> <%= link_to @winery.website, "#{@winery.website}" %>
   </p>
-  <p class="text-left">
-    <strong>Yelp site:</strong> <%= link_to @winery.yelp_url, @winery.yelp_url %>
-  </p>
+  <% if @winery.yelp_url.present? %>
+    <p class="text-left">
+      <strong>Yelp site:</strong> <%= link_to @winery.yelp_url, @winery.yelp_url %>
+    </p>
+  <% end %>
 </div>
