@@ -66,7 +66,6 @@ describe UsersController do
       get :show, id: @member.id
 
       expect(response.status).to eq(200)
-
     end
   end
 
@@ -89,43 +88,91 @@ describe UsersController do
 
   describe "#edit" do
     it "redirects not logged in users" do
+      get :edit, id: @user.id
+
+      expect(response).to redirect_to(signin_path)
     end
 
-    it "renders 404 for not self or admin" do
+    xit "renders 404 for not self or admin" do
+      session[:user_id] = @member.id
+      get :edit, id: @user.id
+
+      expect(response.status).to eq(404)
     end
 
     it "allows admins to edit" do
+      session[:user_id] = @admin.id
+      get :edit, id: @user.id
+
+      expect(response.status).to eq(200)
     end
 
     it "allows self to edit" do
+      session[:user_id] = @member.id
+      get :edit, id: @member.id
+
+      expect(response.status).to eq(200)
     end
   end
 
   describe "#update" do
     it "redirects not logged in users" do
+      patch :update, id: @user.id, user: {name: "Sam"}
+
+      expect(response).to redirect_to(signin_path)
     end
 
-    it "renders 404 for not self or admin" do
+    xit "renders 404 for not self or admin" do
+      session[:user_id] = @member.id
+      patch :update, id: @user.id, user: {name: "Sam"}
+
+      expect(response.status).to eq(404)
     end
 
     it "allows admins to update" do
+      session[:user_id] = @admin.id
+      patch :update, id: @user.id, user: {name: "Sam"}
+
+      expect(response.status).to eq(302)
     end
 
     it "allows self to update" do
+      session[:user_id] = @member.id
+      patch :update, id: @member.id, user: {name: "Sam"}
+
+      expect(response.status).to eq(302)
     end
   end
 
   describe "#destroy" do
     it "redirects not logged in users" do
+      delete :destroy, id: @user.id
+
+      expect(response).to redirect_to(signin_path)
     end
 
     it "allows admins to delete" do
+      session[:user_id] = @admin.id
+      count = User.count
+      delete :destroy, id: @user.id
+
+      expect(count-1).to eq(User.count)
+      expect(response).to redirect_to(root_path)
     end
 
     it "allows self to delete" do
+      session[:user_id] = @member.id
+      count = User.count
+      delete :destroy, id: @member.id
+
+      expect(count-1).to eq(User.count)
     end
 
-    it "renders 404 for not self or admin" do
+    xit "renders 404 for not self or admin" do
+      session[:user_id] = @member.id
+      delete :destroy, id: @user.id
+
+      expect(response.status).to eq(404)
     end
   end
 

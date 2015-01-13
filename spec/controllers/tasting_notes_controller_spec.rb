@@ -110,7 +110,7 @@ describe TastingNotesController do
       expect(response).to render_template(:edit)
     end
 
-    it "does not allow members to edit other notes" do
+    xit "does not allow members to edit other notes" do
     end
   end
 
@@ -123,7 +123,7 @@ describe TastingNotesController do
       expect(response).to redirect_to(tasting_note_path)
     end
 
-    it "does not allow members to update other notes" do
+    xit "does not allow members to update other notes" do
     end
 
     it "allows admins to update notes" do
@@ -155,7 +155,7 @@ describe TastingNotesController do
       expect(count-1).to eq(TastingNote.count)
     end
 
-    it "does not allow members to destroy other notes" do
+    xit "does not allow members to destroy other notes" do
     end
   end
 

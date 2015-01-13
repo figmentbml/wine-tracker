@@ -29,7 +29,8 @@ def create_winery(overrides = {})
     city: "Lousiville",
     state: "CO",
     zip: 22907,
-    phone_number: "999-999-9999"
+    phone_number: "999-999-9999",
+    #winery_pic: File.open(File.join(Rails.root, "spec/fixtures/thor.jpg"))
   }
   )
 end
