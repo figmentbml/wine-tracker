@@ -1,16 +1,10 @@
 <div class="page-header">
-  <div class="pull-right">
-    <%= image_tag("Powered_By_Yelp_Red.png") %>
-  </div>
   <h1>Colorado Wineries</h1>
 </div>
 
 <table class= "table">
   <thead>
     <tr>
-      <td>
-        Rating
-      </td>
       <td>
         Name
       </td>
@@ -31,10 +25,6 @@
     <% @wineries.each do |winery| %>
     <tr>
       <td>
-        <%= image_tag winery.yelp_rating_img_small %>
-        <% winery.yelp_rating %>
-      </td>
-      <td>
         <%= link_to winery.name, winery_path(winery) %>
       </td>
       <td>
@@ -49,6 +39,13 @@
         </td>
         <td><%= link_to "Edit", edit_winery_path(winery) %></td>
         <td><%= link_to "Delete", winery, method: :delete, data: {confirm: "Are you sure?"} %></td>
+      <% else %>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
       <% end %>
       </tr>
       <% end %>

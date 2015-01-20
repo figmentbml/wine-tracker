@@ -57,14 +57,14 @@ private
     :winery_pic,
     :website,
     :yelp_id,
-    :yelp_url,
-    :yelp_review_count,
-    :yelp_rating,
-    :yelp_rating_img_small,
     :wine_id,
-    :approved
+    :approved,
+    :lat,
+    :long,
+    :wine_list
     )
   end
+
 
   def set_winery
     @winery = Winery.find(params[:id])
