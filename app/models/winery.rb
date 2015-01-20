@@ -2,16 +2,11 @@ class Winery < ActiveRecord::Base
   mount_uploader :winery_pic, WineryPicUploader
 
   validates :name, presence: true
-  validates :street, presence: true
-  validates :city, presence: true
-  validates :state, presence: true
-  validates :zip, presence: true
-  validates :phone_number, presence: true
 
   has_many :wines
 
   def full_address
-    "#{street} #{city} #{state} #{zip}"
+    "#{street}, #{city}, #{state} #{zip}"
   end
 
   def upload
