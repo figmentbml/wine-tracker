@@ -9,24 +9,30 @@
       <td>
         Name
       </td>
+      <td>
+        Winery
+      </td>
       <td>Grape Varietal</td>
-      <td>Vineyard</td>
       <td>Year</td>
     </tr>
   </thead>
   <tbody>
     <% @wines.each do |wine| %>
-    <tr>
-      <td><%= wine.rating %></td>
-      <td>
-        <%= link_to wine.name, wine_path(wine) %>
-      </td>
-      <td><%= wine.grape_varietal %></td>
-      <td><%= wine.vineyard %></td>
-      <td><%= wine.year %></td>
-      <td><%= link_to "Edit", edit_wine_path(wine) %></td>
-      <td><%= link_to "Delete", wine, method: :delete, data: {confirm: "Are you sure?"} %></td>
-    </tr>
+      <tr>
+        <td><%= wine.rating %></td>
+        <td>
+          <%= link_to wine.name, wine_path(wine) %>
+        </td>
+        <td>
+          <%= link_to Winery.where(id: wine.winery_id).pluck(:name).join(), winery_path(id: Winery.where(id: wine.winery_id).pluck(:id)) %>
+        </td>
+        <td><%= wine.grape_varietal %></td>
+        <td><%= wine.year %></td>
+        <% if current_user.admin? %>
+          <td><%= link_to "Edit", edit_wine_path(wine) %></td>
+          <td><%= link_to "Delete", wine, method: :delete, data: {confirm: "Are you sure?"} %></td>
+        <% end %>
+      </tr>
     <% end %>
   </tbody>
 </table>
