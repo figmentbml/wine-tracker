@@ -20,12 +20,22 @@ CarrierWave.configure do |config|
   }
 
   # For testing, upload files to local `tmp` folder.
-  if Rails.env.test? || Rails.env.cucumber?
-    config.storage = :file
-    config.enable_processing = false
-    config.root = "#{Rails.root}/tmp"
+  # if Rails.env.test? || Rails.env.cucumber?
+  #   config.storage = :file
+  #   config.enable_processing = false
+  #   config.root = "#{Rails.root}/tmp"
+  # else
+  #   config.storage = :fog
+  # end
+  if Rails.env.test? or Rails.env.cucumber?
+    CarrierWave.configure do |config|
+      config.storage = :file
+      config.enable_processing = false
+    end
   else
-    config.storage = :fog
+    CarrierWave.configure do |config|
+      config.storage = :fog
+    end
   end
 
   config.fog_directory  = 'wine-tracker'                          # required
