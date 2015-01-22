@@ -84,8 +84,9 @@ namespace :scraper do
   end
 
   task loadwineries: :environment do
+    desc "collect wineries data"
     require "#{Rails.root.join("db/wineries_cleaned_up.rb")}"
-    Winery.delete_all
+    #Winery.delete_all
     @cowineries.each do |winery|
       record = {}
       record[:city] = winery[:city]
