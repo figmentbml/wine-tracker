@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :ensure_logged_in_user, except: [:new, :create]
+  before_action :allow_self_and_admin, only: [:show, :edit, :update, :destroy]
+  before_action :only_admin, only: [:index]
 
   def index
     @users = User.all

@@ -1,5 +1,6 @@
 class WinesController < ApplicationController
   before_action :ensure_logged_in_user, except: [:index, :show]
+  before_action :only_admin, only: [:edit, :update, :destroy]
 
   def index
     @wines = Wine.all

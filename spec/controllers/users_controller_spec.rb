@@ -26,7 +26,9 @@ describe UsersController do
       expect(response).to redirect_to(signin_path)
     end
 
-    xit "renders 404 for members" do
+    it "renders 404 for members" do
+      session[:user_id] = @member.id
+
       get :index
 
       expect(response.status).to eq(404)
@@ -47,7 +49,7 @@ describe UsersController do
       expect(response).to redirect_to(signin_path)
     end
 
-    xit "renders 404 for members" do
+    it "renders 404 for members" do
       session[:user_id] = @member.id
       get :show, id: @user.id
 
@@ -78,10 +80,11 @@ describe UsersController do
   end
 
   describe "#create" do
-    xit "allows members to create" do
-      post :create
+    it "allows users to create" do
+      count = User.count
+      post :create, user: {name: "Jimmy", password: "password", email: "jimmy@email.com"}
 
-      expect(response.status).to eq(300)
+      expect(count+1).to eq(User.count)
     end
 
   end
@@ -93,7 +96,7 @@ describe UsersController do
       expect(response).to redirect_to(signin_path)
     end
 
-    xit "renders 404 for not self or admin" do
+    it "renders 404 for not self or admin" do
       session[:user_id] = @member.id
       get :edit, id: @user.id
 
@@ -122,7 +125,7 @@ describe UsersController do
       expect(response).to redirect_to(signin_path)
     end
 
-    xit "renders 404 for not self or admin" do
+    it "renders 404 for not self or admin" do
       session[:user_id] = @member.id
       patch :update, id: @user.id, user: {name: "Sam"}
 
@@ -168,7 +171,7 @@ describe UsersController do
       expect(count-1).to eq(User.count)
     end
 
-    xit "renders 404 for not self or admin" do
+    it "renders 404 for not self or admin" do
       session[:user_id] = @member.id
       delete :destroy, id: @user.id
 

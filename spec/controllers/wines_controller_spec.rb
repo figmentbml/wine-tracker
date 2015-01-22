@@ -153,7 +153,7 @@ describe WinesController do
       expect(response).to redirect_to(signin_path)
     end
 
-    xit "does not allow members to edit" do
+    it "does not allow members to edit" do
       session[:user_id] = @member.id
 
       get :edit, id: @wine.id
@@ -161,7 +161,7 @@ describe WinesController do
       expect(response.status).to eq(404)
     end
 
-    xit "does not allow advanced members to edit" do
+    it "does not allow advanced members to edit" do
       session[:user_id] = @advanced.id
 
       get :edit, id: @wine.id
@@ -179,7 +179,7 @@ describe WinesController do
   end
 
   describe "#update" do
-    xit "does not allow members to update" do
+    it "does not allow members to update" do
       session[:user_id] = @member.id
 
       patch :update, id: @wine.id, wine: {name: "The best"}
@@ -187,7 +187,7 @@ describe WinesController do
       expect(response.status).to eq(404)
     end
 
-    xit "does not allow advanced members to update" do
+    it "does not allow advanced members to update" do
       session[:user_id] = @advanced.id
 
       patch :update, id: @wine.id, wine: {name: "The best"}
@@ -205,7 +205,7 @@ describe WinesController do
   end
 
   describe "#destroy" do
-    xit "does not allow members to destroy" do
+    it "does not allow members to destroy" do
       session[:user_id] = @member.id
 
       delete :destroy, id: @wine.id
@@ -213,7 +213,7 @@ describe WinesController do
       expect(response.status).to eq(404)
     end
 
-    xit "does not allow advanced to destroy" do
+    it "does not allow advanced to destroy" do
       session[:user_id] = @advanced.id
 
       delete :destroy, id: @wine.id

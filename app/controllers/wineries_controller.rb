@@ -1,6 +1,7 @@
 class WineriesController < ApplicationController
   before_action :set_winery, only: [:show, :edit, :update, :destroy]
   before_action :ensure_logged_in_user, except: [:index, :show]
+  before_action :only_admin, only: [:edit, :update, :destroy]
 
   def index
     @wineries = Winery.all

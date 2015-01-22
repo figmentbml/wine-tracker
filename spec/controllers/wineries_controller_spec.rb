@@ -163,7 +163,7 @@ describe WineriesController do
 
       get :edit, id: @winery.id
 
-      expect(response).to render_template(:edit)
+      expect(response.status).to eq(404)
     end
 
     it "does not allow advanced members to edit" do
@@ -171,7 +171,7 @@ describe WineriesController do
 
       get :edit, id: @winery.id
 
-      expect(response).to render_template(:edit)
+      expect(response.status).to eq(404)
     end
 
     it "allows admins to edit" do
@@ -184,7 +184,7 @@ describe WineriesController do
   end
 
   describe "#update" do
-    xit "does not allow members to update" do
+    it "does not allow members to update" do
       session[:user_id] = @member.id
 
       patch :update, id: @winery.id, winery: {name: "The best"}
@@ -192,7 +192,7 @@ describe WineriesController do
       expect(response.status).to eq(404)
     end
 
-    xit "does not allow advanced members to update" do
+    it "does not allow advanced members to update" do
       session[:user_id] = @advanced.id
 
       patch :update, id: @winery.id, winery: {name: "The best"}
@@ -210,7 +210,7 @@ describe WineriesController do
   end
 
   describe "#destroy" do
-    xit "does not allow members to destroy" do
+    it "does not allow members to destroy" do
       session[:user_id] = @member.id
 
       delete :destroy, id: @winery.id

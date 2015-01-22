@@ -37,6 +37,20 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def only_admin
+    unless admin?
+      raise AccessDenied
+    end
+  end
+
+  def allow_self_and_admin
+    @user = User.find(params[:id])
+    return true if admin?
+    unless current_user == @user
+      raise AccessDenied
+    end
+  end
+
   def current_user_notes
     notes_list = TastingNote.where(user_id: current_user.id).pluck(:id)
     @tasting_note = TastingNote.find(params[:id])
