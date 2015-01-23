@@ -1,5 +1,3 @@
-# config/initializers/carrierwave.rb
-
 CarrierWave.configure do |config|
   # For testing, upload files to local `tmp` folder.
   # if Rails.env.test? || Rails.env.cucumber?
