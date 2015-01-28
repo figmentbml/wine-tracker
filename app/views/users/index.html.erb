@@ -11,9 +11,14 @@
       <td>
         Advanced Membership?
       </td>
-      <td>
-        Admin?
-      </td>
+      <% if current_user && current_user.admin? %>
+        <td>
+          Admin?
+        </td>
+      <% else %>
+        <td>
+        </td>
+      <% end %>
     </tr>
   </thead>
   <tbody>

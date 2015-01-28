@@ -14,7 +14,7 @@
       <td>
         City
       </td>
-      <% if current_user.admin? %>
+      <% if current_user && current_user.admin? %>
       <td>
         Approved?
       </td>
@@ -22,8 +22,8 @@
     </tr>
   </thead>
   <tbody>
-    <% if current_user.admin? %>
-      <% @wineries.each do |winery| %>
+    <% if current_user && current_user.admin? %>
+    <% @wineries.each do |winery| %>
         <tr>
           <td>
             <%= link_to winery.name, winery_path(winery) %>

@@ -28,7 +28,7 @@
         </td>
         <td><%= wine.grape_varietal %></td>
         <td><%= wine.year %></td>
-        <% if current_user.admin? %>
+        <% if current_user && current_user.admin? %>
           <td><%= link_to "Edit", edit_wine_path(wine) %></td>
           <td><%= link_to "Delete", wine, method: :delete, data: {confirm: "Are you sure?"} %></td>
         <% end %>

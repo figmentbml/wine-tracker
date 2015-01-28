@@ -1,4 +1,4 @@
-require 'pp'
+srequire 'pp'
 namespace :scraper do
   desc "collect wineries data"
   task :coloradowine do
@@ -30,8 +30,6 @@ namespace :scraper do
     winery_array = []
     data.each_slice(42) do |row|
       record = {}
-      # fields.zip(row)
-      #record[:accommodations] = row[0]
       record[:areaid] = row[1]
       #record[:catering] = row[2]
       record[:city] = row[3]
