@@ -1,4 +1,4 @@
-srequire 'pp'
+require 'pp'
 namespace :scraper do
   desc "collect wineries data"
   task :coloradowine do
