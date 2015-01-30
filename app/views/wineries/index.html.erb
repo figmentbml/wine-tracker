@@ -23,7 +23,25 @@
   </thead>
   <tbody>
     <% if current_user && current_user.admin? %>
-    <% @wineries.each do |winery| %>
+    <% @wineries.sort.each do |winery| %>
+      <% if (winery.approved==false) %>
+        <tr class= "alert alert-danger">
+          <td>
+            <%= link_to winery.name, winery_path(winery) %>
+          </td>
+          <td>
+            <%= winery.website %>
+          </td>
+          <td>
+            <%= winery.city %>
+          </td>
+          <td>
+            <%= winery.approved %>
+          </td>
+          <td><%= link_to "Edit", edit_winery_path(winery) %></td>
+          <td><%= link_to "Delete", winery, method: :delete, data: {confirm: "Are you sure?"} %></td>
+        </tr>
+      <% else %>
         <tr>
           <td>
             <%= link_to winery.name, winery_path(winery) %>
@@ -41,8 +59,9 @@
             <td><%= link_to "Delete", winery, method: :delete, data: {confirm: "Are you sure?"} %></td>
           </tr>
       <% end %>
+      <% end %>
     <% else %>
-      <% @wineries.each do |winery| %>
+      <% @wineries.sort.each do |winery| %>
         <% if winery.approved == true %>
           <tr>
             <td>
