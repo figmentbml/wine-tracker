@@ -1,5 +1,31 @@
-<h1 class="cover-heading">Welcome to Wine Tracker for Colorado!</h1>
-<p class="lead">Eventually this page will allow you to do a few things:</p>
-<p class="lead">write your own tasting notes for Colorado wine</p>
-<p class="lead">list of Colorado wineries with ratings from yelp</p>
-<p class="lead">list of Colorado wines with average ratings</p>
+<h1 class="cover-heading page-header">Welcome to Colorado Wine Tracker!</h1>
+
+<div class="index-wrap">
+  <div class="index-col-1">
+    <div class="perks">
+      <h3>Enjoy a Comprehensive List of Colorado Wineries</h3>
+      <h3>
+        <%= link_to "Learn How to Taste Wine", taste_wine_path %>
+      </h3>
+      <h3>Track Tasting Notes for Colorado Wines</h3>
+      <h3><%= link_to "Sign up now!", signin_path %></h3>
+    </div>
+
+    <h3 class="about-header">
+      <em>About</em>
+    </h3>
+    <p class="lead">
+      Colorado Wine Tracker is my first personal web app since starting a Full Stack Developer Program.
+      I wanted to create a place for my wine tasting notes.
+    </p>
+    <p class="lead">
+      I hope you enjoy it and find it useful!
+    </p>
+  </div>
+
+  <div class="index-col-2">
+    <%= link_to "http://www.flickr.com/photos/doniree/8483124318" do %>
+    <%= image_tag("wine-flight.jpg", class: "img-responsive") %>
+    <% end %>
+  </div>
+</div>
