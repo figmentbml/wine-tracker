@@ -1,10 +1,10 @@
 [![Build Status](https://travis-ci.org/figmentbml/wine-tracker.svg?branch=master)](https://travis-ci.org/figmentbml/wine-tracker)
 
-www.wine-tracker.co
-
 [![Code Climate](https://codeclimate.com/github/figmentbml/wine-tracker/badges/gpa.svg)](https://codeclimate.com/github/figmentbml/wine-tracker)
 
-Tracker can do:
+production url: www.wine-tracker.co
+
+Features:
 - Users can register/sign in/sign out
 - Users can add wine
 - Users can browse Colorado wineries and their info
@@ -12,6 +12,10 @@ Tracker can do:
 - Offer users an advanced user option to have a lot of tasting notes
 - Users can rate wine and input basic tasting notes
 
-Tracker will do:
-- Learn about Colorado Wine region
-- Site will compile users' data for ratings
+Setup:
+- clone
+- rake db:create
+- rake db:migrate
+- rake db:seed
+- bundle
+- You will need Amazon S3 and Yelp API keys in order to run it locally
