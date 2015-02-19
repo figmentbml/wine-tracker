@@ -36,7 +36,7 @@
           <%= note.wine_rating %>
         </td>
         <td>
-          <%= link_to Wine.where(id: note.wine_id).pluck(:name).join(), tasting_note_path(note) %>
+          <!-- <%= link_to Wine.where(id: note.wine_id).pluck(:name).join(), tasting_note_path(note) %> -->
         </td>
         <td>
           <!-- <%= link_to Winery.where(id: Wine.where(id: note.wine_id).pluck(:winery_id)).pluck(:name).join(), winery_path(Wine.where(id: note.wine_id).pluck(:winery_id)) %> -->
@@ -65,10 +65,10 @@
             <%= note.wine_rating %>
           </td>
           <td>
-            <%= link_to Wine.where(id: note.wine_id).pluck(:name).join(), tasting_note_path(note) %>
+            <!-- <%= link_to Wine.where(id: note.wine_id).pluck(:name).join(), tasting_note_path(note) %> -->
           </td>
           <td>
-            <%= link_to Winery.where(id: Wine.where(id: note.wine_id).pluck(:winery_id)).pluck(:name).join(), winery_path(Wine.where(id: note.wine_id).pluck(:winery_id)) %>
+            <!-- <%= link_to Winery.where(id: Wine.where(id: note.wine_id).pluck(:winery_id)).pluck(:name).join(), winery_path(Wine.where(id: note.wine_id).pluck(:winery_id)) %> -->
           </td>
           <td>
             <%= note.flavors %>
