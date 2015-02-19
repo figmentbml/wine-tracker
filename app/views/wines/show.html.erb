@@ -4,8 +4,17 @@
 
 <div class="row">
   <% if @wine.wine_pic.present? %>
+  <div class="col-sm-6">
     <%= image_tag @wine.wine_pic, class: "img-responsive img-thumbnail" %>
+  </div>
   <% end %>
+  <p class="text-left">
+    <strong>Rating:</strong>
+    <%= (TastingNote.where(wine_id: @wine.id).pluck(:wine_rating).sum)/(TastingNote.where(wine_id: @wine.id).pluck(:wine_rating).length) %>  
+  </p>
+  <p class="text-left">
+    <strong>Winery:</strong> <%= link_to Winery.where(id: @wine.winery_id).pluck(:name).join(), winery_path(@wine.winery_id) %>
+  </p>
   <p class="text-left">
     <strong>Grape Varietal:</strong> <%= @wine.grape_varietal %>
   </p>
@@ -14,8 +23,5 @@
   </p>
   <p class="text-left">
     <strong>Year:</strong> <%= @wine.year %>
-  </p>
-  <p class="text-left">
-    <strong>Winery:</strong> <%= link_to Winery.where(id: @wine.winery_id).pluck(:name).join(), winery_path(@wine.winery_id) %>
   </p>
 </div>
