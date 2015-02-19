@@ -4,14 +4,16 @@
     <%= link_to "Delete", tasting_note_path(@tasting_note), method: :delete,
     data: {confirm: "Are you sure?"} %>
   </div>
-  <h1>Name</h1>
+  <h1>
+    <%= Wine.where(id: @tasting_note.wine_id).pluck(:name).join() %>
+  </h1>
 </div>
 
 <p>
   Rating: <%= @tasting_note.wine_rating %>
 </p>
 <p>
-  Last Tasted: date
+  Last Tasted: <%= @tasting_note.date %>
 </p>
 
 <div class="row">
@@ -25,12 +27,15 @@
       <div class="panel-body">
         <p>
           <strong>Varietal:</strong>
+          <%= Wine.where(id: @tasting_note.wine_id).pluck(:grape_varietal).join() %>
         </p>
         <p>
           <strong>Year:</strong>
+          <%= Wine.where(id: @tasting_note.wine_id).pluck(:year).join() %>
         </p>
         <p>
           <strong>Winery:</strong>
+          <%= Winery.where(id: Wine.where(id: @tasting_note.wine_id).pluck(:winery_id)).pluck(:name).join() %>
         </p>
       </div>
     </div>

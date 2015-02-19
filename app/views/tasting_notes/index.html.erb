@@ -33,15 +33,13 @@
           <%= note.updated_at.strftime("%m/%d/%Y") %>
         </td>
         <td>
-          <%= link_to note.wine_rating, tasting_note_path(note) %>
+          <%= note.wine_rating %>
         </td>
         <td>
-          <p>
-            name
-          </p>
+          <%= link_to Wine.where(id: note.wine_id).pluck(:name).join(), tasting_note_path(note) %>
         </td>
         <td>
-          winery
+          <%= link_to Winery.where(id: Wine.where(id: note.wine_id).pluck(:winery_id)).pluck(:name).join(), winery_path(Wine.where(id: note.wine_id).pluck(:winery_id)) %>
         </td>
         <td>
           <%= note.flavors %>
@@ -64,15 +62,13 @@
             <%= note.updated_at.strftime("%m/%d/%Y") %>
           </td>
           <td>
-            <%= link_to note.wine_rating, tasting_note_path(note) %>
+            <%= note.wine_rating %>
           </td>
           <td>
-            <p>
-              name
-            </p>
+            <%= link_to Wine.where(id: note.wine_id).pluck(:name).join(), tasting_note_path(note) %>
           </td>
           <td>
-            winery
+            <%= link_to Winery.where(id: Wine.where(id: note.wine_id).pluck(:winery_id)).pluck(:name).join(), winery_path(Wine.where(id: note.wine_id).pluck(:winery_id)) %>
           </td>
           <td>
             <%= note.flavors %>
