@@ -36,7 +36,7 @@
           <%= note.wine_rating %>
         </td>
         <td>
-          name
+          <%= link_to Wine.where(id: note.wine_id).pluck(:name).join(), tasting_note_path(note) %>
         </td>
         <td>
           winery
@@ -65,7 +65,7 @@
             <%= note.wine_rating %>
           </td>
           <td>
-            name
+            <%= link_to Wine.where(id: note.wine_id).pluck(:name).join(), tasting_note_path(note) %>
           </td>
           <td>
             winery
