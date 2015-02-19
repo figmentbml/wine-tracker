@@ -30,7 +30,7 @@
       <% @tasting_notes.each do |note| %>
       <tr>
         <td>
-          <%= note.updated_at.strftime("%m/%d/%Y") %>
+          <%= note.date.strftime("%m/%d/%Y") %>
         </td>
         <td>
           <%= note.wine_rating %>
@@ -59,7 +59,7 @@
         <% current_user.tasting_notes.each do |note| %>
         <tr>
           <td>
-            <%= note.updated_at.strftime("%m/%d/%Y") %>
+            <%= note.date.strftime("%m/%d/%Y") %>
           </td>
           <td>
             <%= note.wine_rating %>
