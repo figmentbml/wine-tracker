@@ -19,7 +19,15 @@
   <tbody>
     <% @wines.each do |wine| %>
       <tr>
-        <td><%= wine.rating %></td>
+        <% if TastingNote.where(wine_id: wine.id).present? %>
+          <td>
+            <%= (TastingNote.where(wine_id: wine.id).pluck(:wine_rating).sum)/(TastingNote.where(wine_id: wine.id).pluck(:wine_rating).length) %>
+          </td>
+        <% else %>
+          <td>
+            n/a
+          </td>
+        <% end %>
         <td>
           <%= link_to wine.name, wine_path(wine) %>
         </td>
