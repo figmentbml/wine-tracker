@@ -30,7 +30,7 @@
             <%= link_to winery.name, winery_path(winery) %>
           </td>
           <td>
-            <%= winery.website %>
+            <%= link_to winery.website, "http://#{winery.website}" %>
           </td>
           <td>
             <%= winery.city %>
@@ -47,7 +47,7 @@
             <%= link_to winery.name, winery_path(winery) %>
           </td>
           <td>
-            <%= winery.website %>
+            <%= link_to winery.website, "http://#{winery.website}" %>
           </td>
           <td>
             <%= winery.city %>

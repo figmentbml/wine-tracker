@@ -16,6 +16,6 @@
     <strong>Year:</strong> <%= @wine.year %>
   </p>
   <p class="text-left">
-    <strong>Winery:</strong> <%= @wine.winery_id %>
+    <strong>Winery:</strong> <%= link_to Winery.where(id: @wine.winery_id).pluck(:name).join(), winery_path(@wine.winery_id) %>
   </p>
 </div>
