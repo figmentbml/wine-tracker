@@ -37,7 +37,8 @@
         </p>
         <p>
           <strong>Winery:</strong>
-          <%= link_to Winery.where(id: Wine.where(id: @tasting_note.wine_id).pluck(:winery_id)).pluck(:name).join(), winery_path(Wine.where(id: @tasting_note.wine_id).pluck(:winery_id)) %>
+          <%= link_to Winery.where(id: Wine.where(id: @tasting_note.wine_id).pluck(:winery_id)).pluck(:name).join(),
+           winery_path(Wine.where(id: @tasting_note.wine_id).pluck(:winery_id)) %>
         </p>
       </div>
     </div>
