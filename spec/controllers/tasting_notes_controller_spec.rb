@@ -18,10 +18,22 @@ describe TastingNotesController do
       email: "admin@email.com",
       advanced: true,
       admin: true)
+    @winery = create_winery(
+    name: "Winery",
+    street: "15 Main St",
+    city: "Lousiville",
+    state: "CO",
+    zip: 22907,
+    phone_number: "999-999-9999"
+    )
+    @wine = create_wine(
+      winery_id: @winery.id
+    )
     @note = create_tasting_note(
       notes: "awesome",
       wine_rating: 5,
-      user_id: @member.id)
+      user_id: @member.id,
+      wine_id: @wine.id)
   end
 
   describe "#index" do
@@ -82,7 +94,7 @@ describe TastingNotesController do
   describe "#create" do
     it "allows members to create new notes" do
       session[:user_id] = @member.id
-      post :create, tasting_note: {notes: "yummy", wine_rating: 4}
+      post :create, tasting_note: {notes: "yummy", wine_rating: 4, wine_id: @wine.id}
 
       expect(TastingNote.last.notes).to eq("yummy")
     end
@@ -98,7 +110,7 @@ describe TastingNotesController do
 
     it "allows members to edit notes" do
       session[:user_id] = @member.id
-      @member_note = create_tasting_note(notes: "horrible", user_id: @member.id)
+      @member_note = create_tasting_note(notes: "horrible", user_id: @member.id, wine_id: @wine.id)
       get :edit, id: @member_note.id
 
       expect(response).to render_template(:edit)
@@ -118,7 +130,7 @@ describe TastingNotesController do
   describe "#update" do
     it "allows members to update notes" do
       session[:user_id] = @member.id
-      @member_note = create_tasting_note(notes: "horrible", user_id: @member.id)
+      @member_note = create_tasting_note(notes: "horrible", user_id: @member.id, wine_id: @wine.id)
       patch :update, id: @member_note.id, tasting_note: {wine_rating: 2}
 
       expect(response).to redirect_to(tasting_note_path)
@@ -139,7 +151,7 @@ describe TastingNotesController do
   describe "#destroy" do
     it "allows members to destroy notes" do
       session[:user_id] = @member.id
-      @member_note = create_tasting_note(notes: "horrible", user_id: @member.id)
+      @member_note = create_tasting_note(notes: "horrible", user_id: @member.id, wine_id: @wine.id)
       count = TastingNote.count
       delete :destroy, id: @member_note.id
 

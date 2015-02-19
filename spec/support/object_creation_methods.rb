@@ -30,7 +30,7 @@ def create_winery(overrides = {})
     state: "CO",
     zip: 22907,
     phone_number: "999-999-9999"
-  }
+  }.merge(overrides)
   )
 end
 
@@ -38,7 +38,8 @@ def create_wine(overrides = {})
   Wine.create!(
   {
     grape_varietal: "Merlot",
-    name: "Awesome Sauce"
-  }
+    name: "Awesome Sauce",
+    winery_id: 1
+  }.merge(overrides)
   )
 end

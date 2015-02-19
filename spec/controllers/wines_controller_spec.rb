@@ -18,10 +18,18 @@ describe WinesController do
     email: "admin@email.com",
     advanced: true,
     admin: true)
-
+    @winery = create_winery(
+    name: "Winery",
+    street: "15 Main St",
+    city: "Lousiville",
+    state: "CO",
+    zip: 22907,
+    phone_number: "999-999-9999"
+    )
     @wine = create_wine(
     grape_varietal: "Blend",
-    name: "Best"
+    name: "Best",
+    winery_id: @winery.id
     )
   end
 
@@ -124,7 +132,7 @@ describe WinesController do
     it "allows members to create" do
       session[:user_id] = @member.id
 
-      post :create, wine: {name: "Merlot", grape_varietal: "Merlot"}
+      post :create, wine: {name: "Merlot", grape_varietal: "Merlot", winery_id: @winery.id}
 
       expect(Wine.last.name).to eq("Merlot")
     end
@@ -132,7 +140,7 @@ describe WinesController do
     it "allows advanced members to create" do
       session[:user_id] = @advanced.id
 
-      post :create, wine: {name: "Merlot", grape_varietal: "Merlot"}
+      post :create, wine: {name: "Merlot", grape_varietal: "Merlot", winery_id: @winery.id}
 
       expect(Wine.last.name).to eq("Merlot")
     end
@@ -140,7 +148,7 @@ describe WinesController do
     it "allows admins to create" do
       session[:user_id] = @admin.id
 
-      post :create, wine: {name: "Merlot", grape_varietal: "Merlot"}
+      post :create, wine: {name: "Merlot", grape_varietal: "Merlot", winery_id: @winery.id}
 
       expect(Wine.last.name).to eq("Merlot")
     end
