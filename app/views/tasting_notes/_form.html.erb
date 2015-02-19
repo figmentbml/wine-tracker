@@ -63,18 +63,10 @@
           <div class="row form-group">
             <%= f.label :color_hue, "Hue", class: "col-sm-4 control-label"%>
             <div class= "col-sm-8">
-              <div class="form-group off-set-col-sm-2">
-                <%= f.select(:color_hue, ["greenish", "yellow", "straw yellow", "gold", "amber"],
-                {include_blank: "White Wine"}, {class: "form-control"}) %>
-              </div>
-              <div class="form-group off-set-col-sm-2">
-                <%= f.select(:color_hue, ["purpleish", "ruby", "red", "garnet", "brick", "brown"],
-                {include_blank: "Red Wine"}, {class: "form-control"}) %>
-              </div>
-              <div class="off-set-col-sm-2">
-                <%= f.select(:color_hue, ["pink", "salmon", "orange", "copper"],
-                {include_blank: "Rose Wine"}, {class: "form-control"}) %>
-              </div>
+              <%= f.select(:color_hue, ["greenish", "yellow", "straw yellow", "gold", "amber",
+                "pink", "salmon", "orange", "copper",
+                "purpleish", "ruby", "red", "garnet", "brick", "brown"],
+              {include_blank: :true}, {class: "form-control"}) %>
             </div>
           </div>
 
@@ -89,6 +81,7 @@
           <% end %>
         </div>
       </div>
+      
       <div class="panel panel-info">
         <div class="panel-heading">
           <h2 class="panel-title">

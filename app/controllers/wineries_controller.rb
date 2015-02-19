@@ -14,7 +14,7 @@ class WineriesController < ApplicationController
   def create
     @winery = Winery.new(winery_params)
     if @winery.save
-      redirect_to wineries_path, notice: "Winery was successfully created"
+      redirect_to wineries_path, notice: "Winery was successfully created. New wineries will not appear on the site until they are approved by an admin."
     else
       render :new
     end
