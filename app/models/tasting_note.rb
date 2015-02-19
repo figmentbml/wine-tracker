@@ -4,6 +4,7 @@ class TastingNote < ActiveRecord::Base
   belongs_to :wine
 
   validates :wine_rating, presence: true
+  validates :wine_id, presence: true
   validate :rating_cannot_be_greater_than_5, on: [:create, :update]
 
   def rating_cannot_be_greater_than_5
