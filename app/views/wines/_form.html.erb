@@ -8,10 +8,16 @@
     <div class="col-sm-4">
       <%= f.text_field :name, class: "form-control" %>
     </div>
+
+    <div class="col-sm-4">
+      <p>
+        Please format it like this: "Name (Winery)"
+      </p>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :winery_id, "Winery", class: "col-sm-2 control-label" %>
+    <%= f.label :winery_id, "Winery*", class: "col-sm-2 control-label" %>
     <div class="col-sm-4">
       <%= f.collection_select(:winery_id, Winery.all, :id, :name, {include_blank: :true}, {class: "form-control"}) %>
     </div>

@@ -3,6 +3,7 @@ class Wine < ActiveRecord::Base
 
   validates :grape_varietal, presence: true
   validates :name, presence: true
+  validates :winery_id, presence: true
 
   belongs_to :winery
   has_many :tasting_notes
