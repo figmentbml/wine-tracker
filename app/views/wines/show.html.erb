@@ -10,7 +10,16 @@
   <% end %>
   <p class="text-left">
     <strong>Rating:</strong>
-    <%= (TastingNote.where(wine_id: @wine.id).pluck(:wine_rating).sum)/(TastingNote.where(wine_id: @wine.id).pluck(:wine_rating).length) %>  
+    <% if TastingNote.where(wine_id: @wine.id).present? %>
+      <td>
+        <%= (TastingNote.where(wine_id: @wine.id).pluck(:wine_rating).sum)/(TastingNote.where(wine_id: @wine.id).pluck(:wine_rating).length) %>
+      </td>
+    <% else %>
+      <td>
+        n/a
+      </td>
+    <% end %>
+
   </p>
   <p class="text-left">
     <strong>Winery:</strong> <%= link_to Winery.where(id: @wine.winery_id).pluck(:name).join(), winery_path(@wine.winery_id) %>
