@@ -10,9 +10,9 @@
   <% end %>
   <p class="text-left">
     <strong>Rating:</strong>
-    <% if TastingNote.where(wine_id: @wine.id).present? %>
+    <% if @wine.tasting_notes.present? %>
       <td>
-        <%= (TastingNote.where(wine_id: @wine.id).pluck(:wine_rating).sum)/(TastingNote.where(wine_id: @wine.id).pluck(:wine_rating).length) %>
+        <%= number_with_precision(@wine.tasting_notes.average(:wine_rating), precision: 2) %>
       </td>
     <% else %>
       <td>
@@ -22,7 +22,7 @@
 
   </p>
   <p class="text-left">
-    <strong>Winery:</strong> <%= link_to Winery.where(id: @wine.winery_id).pluck(:name).join(), winery_path(@wine.winery_id) %>
+    <strong>Winery:</strong> <%= link_to @wine.winery.name, winery_path(@wine.winery_id) %>
   </p>
   <p class="text-left">
     <strong>Grape Varietal:</strong> <%= @wine.grape_varietal %>

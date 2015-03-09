@@ -30,16 +30,18 @@
       <% @tasting_notes.each do |note| %>
       <tr>
         <td>
-          <%= note.date.strftime("%m/%d/%Y") %>
+          <% if note.date.present? %>
+            <%= note.date.strftime("%m/%d/%Y") %>
+          <% end %>
         </td>
         <td>
           <%= note.wine_rating %>
         </td>
         <td>
-          <%= link_to Wine.where(id: note.wine_id).pluck(:name).join(), tasting_note_path(note) %>
+          <%= link_to note.wine.name, tasting_note_path(note) %>
         </td>
         <td>
-          <%= link_to Winery.where(id: Wine.where(id: note.wine_id).pluck(:winery_id)).pluck(:name).join(), winery_path(Wine.where(id: note.wine_id).pluck(:winery_id)) %>
+          <%= link_to note.wine.winery.name, winery_path(note.wine.winery) %>
         </td>
         <td>
           <%= note.flavors %>
@@ -59,16 +61,18 @@
         <% current_user.tasting_notes.each do |note| %>
         <tr>
           <td>
-            <%= note.date.strftime("%m/%d/%Y") %>
+            <% if note.date.present? %>
+              <%= note.date.strftime("%m/%d/%Y") %>
+            <% end %>
           </td>
           <td>
             <%= note.wine_rating %>
           </td>
           <td>
-            <%= link_to Wine.where(id: note.wine_id).pluck(:name).join(), tasting_note_path(note) %>
+            <%= link_to note.wine.name, tasting_note_path(note) %>
           </td>
           <td>
-            <%= link_to Winery.where(id: Wine.where(id: note.wine_id).pluck(:winery_id)).pluck(:name).join(), winery_path(Wine.where(id: note.wine_id).pluck(:winery_id)) %>
+            <%= link_to note.wine.winery.name, winery_path(note.wine.winery) %>
           </td>
           <td>
             <%= note.flavors %>
