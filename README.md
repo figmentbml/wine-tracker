@@ -1,3 +1,9 @@
+A Rails app that provides information about Colorado Wineries and their wine.  It keeps track of your tasting notes so you can remember if you liked that wine and explore how a wine changes over time.
+
+Technical Notes: Ruby on Rails, Rake Tasks, Scraping Sites, Bootstrap, User Authorization, Forms, Controller Specs, Bootstrap, Amazon S3 Server, Associations
+
+Gems: Yelp API, Carrierwave, Fog, Nokogiri
+
 [![Build Status](https://travis-ci.org/figmentbml/wine-tracker.svg?branch=master)](https://travis-ci.org/figmentbml/wine-tracker)
 
 [![Code Climate](https://codeclimate.com/github/figmentbml/wine-tracker/badges/gpa.svg)](https://codeclimate.com/github/figmentbml/wine-tracker)
